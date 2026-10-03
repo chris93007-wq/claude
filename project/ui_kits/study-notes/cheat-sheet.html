@@ -1,0 +1,44 @@
+<!-- @dsCard group="Study Notes" viewport="1100x680" name="Cheat Sheet" subtitle="Landscape, 4-column ultra-dense recap of every topic on one sheet" -->
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--surface-page)}</style>
+<div id="root"></div>
+<script type="text/babel">
+const { PageBadge, PageFooter } = window.Notes_fd16d9;
+function CheatSheetPage(){
+  const page = { maxWidth: 1020, margin: '0 auto', padding: '32px 40px', fontFamily: 'var(--font-body)', color: 'var(--ink-900)' };
+  const grid = { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', columnGap: 20 };
+  const col = (ch) => ({ borderTop: `4px solid var(--chapter-${ch}-500)`, paddingTop: 10, display: 'flex', flexDirection: 'column', gap: 8 });
+  const colTitle = (ch) => ({ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 13, color: `var(--chapter-${ch}-900)`, margin: 0 });
+  const bullet = { fontSize: 11.5, lineHeight: 1.5, color: 'var(--ink-900)', margin: 0, paddingLeft: 14, position: 'relative' };
+  const dot = (ch) => ({ position: 'absolute', left: 0, color: `var(--chapter-${ch}-500)` });
+  const formulaBox = (ch) => ({ fontFamily: 'var(--font-mono)', fontSize: 10.5, color: `var(--chapter-${ch}-900)`, background: `var(--chapter-${ch}-100)`, borderRadius: 'var(--radius-sm)', padding: '6px 8px', lineHeight: 1.4 });
+  const Bullets = ({ ch, items }) => items.map((t, i) => <p key={i} style={bullet}><span style={dot(ch)}>•</span>{t}</p>);
+  const cols = [
+    { ch: 1, title: 'MaxDiff', bullets: ['Pick Most & Least from a small set, repeated', 'Forces trade-offs — no scale inflation'], formula: 'Net score = Most% − Least%,\nover every appearance' },
+    { ch: 2, title: 'TURF', bullets: ['Finds the bundle with widest reach', 'Only NEW reach counts per step', 'Constrained by a budget or item count'], formula: 'Reach = % covered by\n≥1 item in the bundle' },
+    { ch: 3, title: 'The Pipeline', bullets: ['1. MaxDiff scores & ranks items', '2. Convert to binary top-choice data', '3. TURF finds the optimal bundle'], formula: '' },
+    { ch: 4, title: 'Conjoint', bullets: ['Rate/choose full product profiles', 'Reveals $ value, not just rank', 'Utility = sum of part-worths'], formula: 'WTP = attribute utility\n÷ utils-per-dollar rate' },
+  ];
+  return (
+    <div style={page}>
+      <PageBadge week="Week 3" label="Cheat Sheet" chapter={1} />
+      <div style={grid}>
+        {cols.map((c) => (
+          <div key={c.ch} style={col(c.ch)}>
+            <h3 style={colTitle(c.ch)}>{c.title}</h3>
+            <Bullets ch={c.ch} items={c.bullets} />
+            {c.formula && <div style={formulaBox(c.ch)}>{c.formula}</div>}
+          </div>
+        ))}
+      </div>
+      <div style={{height:20}} />
+      <PageFooter chapterLabel="Preference Measurement" page={8} totalPages={12} />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<CheatSheetPage />);
+</script>

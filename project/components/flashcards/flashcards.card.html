@@ -1,0 +1,21 @@
+<!-- @dsCard group="Components" viewport="900x460" name="Flashcards" subtitle="Mini definition / formula-in-words / why card grid for an overview page" -->
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<div id="root" style="padding:16px;background:var(--surface-page)"></div>
+<script type="text/babel">
+const { FlashcardGrid } = window.Notes_fd16d9;
+function Demo(){
+  return (
+    <FlashcardGrid cards={[
+      { title: 'MaxDiff', definition: 'Repeatedly pick the Most and Least important item from a small set.', formula: 'Net score = Most% − Least%, over every appearance.', why: 'Forces a real trade-off instead of a rating everyone inflates.' },
+      { title: 'TURF', definition: 'Finds the bundle that reaches the most people under a budget.', formula: 'Reach = share covered by at least one item in the bundle.', why: 'Only new reach counts — overlapping coverage adds nothing.' },
+      { title: 'The Pipeline', definition: 'Score and rank with MaxDiff, then run TURF for the optimal bundle.', why: 'Each tool answers a different question; chaining them answers both.' },
+      { title: 'Conjoint Analysis', definition: 'Turns trade-off choices into willingness-to-pay, in real dollars.', formula: 'WTP = attribute\u2019s utility \u00f7 utils per dollar.', why: 'Price is the only attribute in real dollars, so dividing by it converts utils back to dollars.' },
+    ]} />
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>

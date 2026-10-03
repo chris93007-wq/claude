@@ -1,0 +1,15 @@
+<!-- @dsCard group="Colors" viewport="900x1040" name="Palette" subtitle="Full Material-UI system, 50–900 — chapter numbers mark the 13 hues used as chapter colors; red/yellow/green are reserved for trap/highlight/tip" -->
+<link rel="stylesheet" href="../styles.css">
+<div style="font-family:var(--font-mono);font-size:10px;color:var(--ink-700)">
+<div style="display:grid;grid-template-columns:30px 90px repeat(9,1fr);gap:2px;align-items:center;margin-bottom:4px">
+<span></span><span></span><span style="text-align:center">50</span><span style="text-align:center">100</span><span style="text-align:center">200</span><span style="text-align:center">300</span><span style="text-align:center">400</span><span style="text-align:center">500</span><span style="text-align:center">600</span><span style="text-align:center">700</span><span style="text-align:center">900</span>
+</div>
+<script>
+const rows = [
+  ['red',''],['pink','4'],['purple','10'],['deep-purple','6'],['indigo','1'],['blue','13'],['light-blue','8'],['cyan','11'],['teal','3'],
+  ['green',''],['light-green','12'],['lime','5'],['yellow',''],['amber','7'],['orange','2'],['deep-orange','9'],['brown',''],['grey',''],['blue-grey','']
+];
+const steps = [50,100,200,300,400,500,600,700,900];
+document.currentScript.insertAdjacentHTML('afterend', rows.map(([n,ch]) => `<div style="display:grid;grid-template-columns:30px 90px repeat(9,1fr);gap:2px;align-items:center;margin-bottom:2px"><span style="font-weight:700;color:var(--ink-900)">${ch}</span><span>${n}</span>${steps.map(s => `<div style="height:24px;background:var(--${n}-${s})" title="${n} ${s}"></div>`).join('')}</div>`).join(''));
+</script>
+</div>

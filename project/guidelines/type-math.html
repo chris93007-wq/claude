@@ -1,0 +1,12 @@
+<!-- @dsCard group="Type" viewport="700x200" name="Math — KaTeX" subtitle="Formulas render via KaTeX (CDN), not Merriweather/Lexend — used inside ConceptCard" -->
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<div id="root" style="padding:8px"></div>
+<script>
+window.addEventListener('load', () => {
+  document.getElementById('root').innerHTML = katex.renderToString('WTP = \\dfrac{\\text{attribute\\'s utility}}{\\text{utils per dollar}}', { throwOnError: false });
+  document.getElementById('root').style.fontSize = '22px';
+  document.getElementById('root').style.color = 'var(--ink-900)';
+});
+</script>

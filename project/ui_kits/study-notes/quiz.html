@@ -1,0 +1,40 @@
+<!-- @dsCard group="Study Notes" viewport="900x780" name="Practice Questions" subtitle="Quiz page — answers shown inline in a muted strip, nothing hidden (fully printable)" -->
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--surface-page)}</style>
+<div id="root"></div>
+<script type="text/babel">
+
+const { } = window.Notes_fd16d9;
+function QuizPage() {
+  const page = { maxWidth: 820, margin: '0 auto', padding: '40px 32px', fontFamily: 'var(--font-body)', color: 'var(--ink-900)' };
+  const item = { marginBottom: 22 };
+  const qNum = (ch) => ({ fontFamily: 'var(--font-mono)', fontSize: 12, color: `var(--chapter-${ch}-500)`, fontWeight: 700, marginRight: 8 });
+  const q = { fontSize: 16, lineHeight: 1.55, color: 'var(--ink-900)', margin: '4px 0 10px' };
+  const answerStrip = { background: 'var(--light-green-200)', borderRadius: 'var(--radius-sm)', padding: '8px 12px', display: 'flex', gap: 8, alignItems: 'baseline' };
+  const answerLabel = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 10, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--ink-900)', flexShrink: 0 };
+  const answerText = { fontSize: 13.5, color: 'var(--ink-900)', lineHeight: 1.5 };
+  const CH = 9;
+  const questions = [
+  { q: 'An item appeared in 4 choice sets, was picked Most once and Least once. What is its net choice score?', a: '1/4 − 1/4 = 25% − 25% = 0pp. The denominator is every appearance (4), not just the 2 times it was selected.' },
+  { q: 'Bundle A reaches 60% of respondents. Adding Item X, which only appeals to people Bundle A already reaches, changes reach by how much?', a: '0 percentage points — TURF only counts NEW reach; fully overlapping coverage adds nothing.' },
+  { q: 'A part-worth of 20 utils for a feature, with a price slope of 2 utils per dollar, gives what willingness to pay?', a: '$10 — WTP = attribute utility ÷ utils-per-dollar rate = 20 ÷ 2.' },
+  { q: 'Why does MaxDiff ask for Most AND Least, instead of just "pick your favorite"?', a: 'Picking only a favorite wastes the rest of the choice set — forcing a Least pick extracts information about every item shown, not just the winner.' }];
+
+  return (
+    <div style={page} data-comment-anchor="30f588e310-div-19-5">
+      {questions.map((it, i) =>
+      <div key={i} style={item}>
+          <p style={q}><span style={qNum(CH)}>Q{i + 1}</span>{it.q}</p>
+          <div style={answerStrip}><span style={answerLabel}>A{i + 1}.</span><span style={answerText}>{it.a}</span></div>
+        </div>
+      )}
+      <div style={{ height: 16 }} />
+    </div>);
+
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<QuizPage />);
+</script>

@@ -1,0 +1,50 @@
+<!-- @dsCard group="Components" viewport="760x900" name="Diagrams" subtitle="Formula tree, chain, 2-sided split, and matrix" -->
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<div id="root" style="padding:16px;background:var(--surface-page);display:flex;flex-direction:column;gap:12px"></div>
+<script type="text/babel">
+const { FormulaTree, Chain, Split, Matrix, Flowchart } = window.Notes_fd16d9;
+function ChapterTag({ n }) {
+  const s = { display: 'inline-block', fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 700, color: '#fff', background: `var(--chapter-${n}-500)`, padding: '2px 8px', borderRadius: 4, marginBottom: 8 };
+  return <span style={s}>Chapter {n}</span>;
+}
+function Demo(){
+  return (
+    <React.Fragment>
+      <div><ChapterTag n={1} /><FormulaTree chapter={1} root={{
+        value: '$5,892', label: 'Willingness to Pay', filled: true, op: '×',
+        children: [
+          { value: '11.85 utils', label: "Attribute's Utility" },
+          { value: '$497/util', label: '$ Per Util Rate', tint: true, op: '÷', children: [
+            { value: '$30,000', label: 'Price Range' },
+            { value: '60.34 utils', label: 'Utility Range' },
+          ]},
+        ],
+      }} />
+      </div>
+      <div><ChapterTag n={5} /><Chain chapter={5} items={['Conjoint', 'Consider', 'Jointly']} connector="→" /></div>
+      <div><ChapterTag n={4} /><Split
+        left={{ title: 'Stated Preference', chapter: 11, items: ['"What do you want?"', 'Costs the respondent nothing', 'Everyone asks for everything'] }}
+        right={{ title: 'Revealed Preference', chapter: 5, items: ['Forced trade-off choice', 'Reveals true value', 'What MaxDiff & Conjoint measure'] }}
+      /></div>
+      <div><ChapterTag n={5} /><Matrix
+        chapter={5}
+        rowLabels={['MaxDiff', 'Conjoint', 'TURF']}
+        colLabels={['Ranks items', 'Gives $ value', 'Picks a bundle']}
+        cells={[['✓','–','–'],['–','✓','–'],['–','–','✓']]}
+      /></div>
+      <div><ChapterTag n={1} /><Flowchart chapter={1} root={{
+        label: 'Need a ranking or a $ value?', shape: 'diamond',
+        children: [
+          { label: 'Ranking', to: { label: 'Use MaxDiff', filled: true } },
+          { label: '$ Value', to: { label: 'Use Conjoint Analysis', filled: true } },
+        ],
+      }} /></div>
+    </React.Fragment>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>

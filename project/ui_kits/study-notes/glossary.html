@@ -1,0 +1,47 @@
+<!-- @dsCard group="Study Notes" viewport="900x620" name="Glossary" subtitle="2-column alphabetical dictionary layout, grouped by letter" -->
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--surface-page)}</style>
+<div id="root"></div>
+<script type="text/babel">
+const { PageBadge, PageFooter } = window.Notes_fd16d9;
+function GlossaryPage(){
+  const page = { maxWidth: 900, margin: '0 auto', padding: '40px 32px', fontFamily: 'var(--font-body)', color: 'var(--ink-900)' };
+  const h1 = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 28, margin: '0 0 20px' };
+  const grid = { columnWidth: 390, columnGap: 36 };
+  const letterHead = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 13, color: 'var(--chapter-1-500)', letterSpacing: '0.06em', margin: '14px 0 2px', breakAfter: 'avoid' };
+  const entry = { breakInside: 'avoid', padding: '7px 0', borderBottom: '1px solid var(--line)' };
+  const term = { fontWeight: 700, fontSize: 14, display: 'block' };
+  const def = { fontSize: 13, color: 'var(--ink-700)', lineHeight: 1.5 };
+  const groups = [
+    { letter: 'C', items: [{ term: 'Conjoint Analysis', def: 'Infers part-worth utilities from trade-off choices, rather than asking importance directly.' }] },
+    { letter: 'M', items: [{ term: 'MaxDiff', def: 'Repeatedly picks the most/least-important item from a small set to reveal a ranking.' }] },
+    { letter: 'N', items: [{ term: 'Net Choice Score', def: 'Most% minus Least%, over every appearance — not just the times it was picked at all.' }] },
+    { letter: 'P', items: [{ term: 'Part-Worth', def: 'The utility value one attribute level contributes to a product\u2019s total utility.' }] },
+    { letter: 'R', items: [{ term: 'Reach', def: 'Share of respondents who\u2019d pick at least one item from a given bundle.' }] },
+    { letter: 'T', items: [{ term: 'TURF', def: 'Finds the bundle reaching the widest audience under a cost or count cap.' }] },
+    { letter: 'U', items: [{ term: 'Utility', def: 'The overall score for one product configuration — sum of its part-worths.' }] },
+    { letter: 'W', items: [{ term: 'Willingness to Pay (WTP)', def: 'The dollar amount trade-offs imply a consumer would pay for one upgrade.' }] },
+  ];
+  return (
+    <div style={page}>
+      <PageBadge week="Week 3" label="Glossary" chapter={1} />
+      <h1 style={h1}>Glossary</h1>
+      <div style={grid}>
+        {groups.map((g) => (
+          <div key={g.letter}>
+            <div style={letterHead}>{g.letter}</div>
+            {g.items.map((it, i) => <div key={i} style={entry}><span style={term}>{it.term}</span><span style={def}>{it.def}</span></div>)}
+          </div>
+        ))}
+      </div>
+      <div style={{height:24}} />
+      <PageFooter chapterLabel="Preference Measurement" page={12} totalPages={12} />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<GlossaryPage />);
+</script>

@@ -1,0 +1,38 @@
+<!-- @dsCard group="Layout" viewport="700x800" name="Page Columns & Orientation" subtitle="1-4 content columns, portrait or landscape, plus full-width rows mixed with split rows per the 12-col grid" -->
+<link rel="stylesheet" href="../styles.css">
+<div style="font-family:var(--font-body);color:var(--ink-900)">
+<div style="display:flex;gap:16px;align-items:flex-end;margin-bottom:10px">
+<div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:60px;height:80px;border:2px solid var(--chapter-1-500);border-radius:3px;display:flex;padding:5px;gap:3px;position:relative"><div style="flex:1;background:var(--chapter-1-100)"></div></div><span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-500)">1 col · portrait</span></div>
+<div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:60px;height:80px;border:2px solid var(--chapter-1-500);border-radius:3px;display:flex;padding:5px;gap:3px"><div style="flex:1;background:var(--chapter-1-100)"></div><div style="flex:1;background:var(--chapter-1-100)"></div></div><span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-500)">2 col · portrait</span></div>
+<div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:78px;height:60px;border:2px solid var(--chapter-1-500);border-radius:3px;display:flex;padding:5px;gap:3px"><div style="flex:1;background:var(--chapter-1-100)"></div><div style="flex:1;background:var(--chapter-1-100)"></div><div style="flex:1;background:var(--chapter-1-100)"></div></div><span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-500)">3 col · landscape</span></div>
+<div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:78px;height:60px;border:2px solid var(--chapter-1-500);border-radius:3px;display:flex;padding:5px;gap:3px"><div style="flex:1;background:var(--chapter-1-100)"></div><div style="flex:1;background:var(--chapter-1-100)"></div><div style="flex:1;background:var(--chapter-1-100)"></div><div style="flex:1;background:var(--chapter-1-100)"></div></div><span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-500)">4 col · landscape</span></div>
+</div>
+<div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-500);margin-bottom:16px">US Letter, 0.5in margin (the padding shown inside each box) — 8.5 × 11in portrait, 11 × 8.5in landscape.</div>
+<div style="font-size:13px;line-height:1.6;color:var(--ink-700)">
+<div style="margin-bottom:4px"><strong>Portrait (default):</strong> 1 column for prose/callouts; 2 columns once content is short, scannable blocks (definitions, tables, flashcards) — see Notes Page.</div>
+<div><strong>Landscape:</strong> reflow to 3-4 columns to use the extra width — best for flashcard grids, comparison tables, or dense reference pages (Appendix).</div>
+</div>
+<div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
+<div style="font-size:13px;color:var(--ink-700);margin-bottom:8px"><strong>Mixed rows:</strong> within one page, rows can alternate — a full-bleed row (heading, callout, wide table) followed by a row split into 2-4 columns — same Material 12-col logic as above, just applied row by row instead of to the whole page.</div>
+<div style="display:grid;grid-template-columns:repeat(12,1fr);gap:8px">
+<div style="grid-column:1/-1;height:16px;background:var(--chapter-1-100);border-radius:4px"></div>
+<div style="grid-column:span 6;height:16px;background:var(--chapter-1-100);border-radius:4px"></div>
+<div style="grid-column:span 6;height:16px;background:var(--chapter-1-100);border-radius:4px"></div>
+<div style="grid-column:span 4;height:16px;background:var(--chapter-1-100);border-radius:4px"></div>
+<div style="grid-column:span 4;height:16px;background:var(--chapter-1-100);border-radius:4px"></div>
+<div style="grid-column:span 4;height:16px;background:var(--chapter-1-100);border-radius:4px"></div>
+<div style="grid-column:1/-1;height:16px;background:var(--chapter-1-100);border-radius:4px"></div>
+</div>
+</div>
+<div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
+<div style="font-size:13px;color:var(--ink-700);margin-bottom:8px"><strong>Inside cards &amp; sections:</strong> the same column logic applies one level down — a card's own body, or a Section's content area, can split into 2-4 columns rather than the whole page row (e.g. ConceptCard pairs in Notes Page, or a Section holding a 3-up flashcard row).</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="border:1.5px solid var(--chapter-4-500);border-radius:6px;padding:8px;display:flex;flex-direction:column;gap:4px"><div style="height:6px;width:30%;background:var(--chapter-4-500);border-radius:2px"></div><div style="height:16px;background:var(--chapter-4-100);border-radius:3px"></div></div>
+<div style="display:flex;gap:12px">
+<div style="flex:1;border:1.5px solid var(--chapter-4-500);border-radius:6px;padding:8px;display:flex;flex-direction:column;gap:4px"><div style="height:6px;width:40%;background:var(--chapter-4-500);border-radius:2px"></div><div style="height:16px;background:var(--chapter-4-100);border-radius:3px"></div></div>
+<div style="flex:1;border:1.5px solid var(--chapter-4-500);border-radius:6px;padding:8px;display:flex;flex-direction:column;gap:6px">
+<div style="height:6px;width:40%;background:var(--chapter-4-500);border-radius:2px"></div>
+<div style="height:16px;background:var(--chapter-4-100);border-radius:3px"></div>
+<div style="display:flex;gap:6px"><div style="flex:1;height:16px;background:var(--chapter-4-100);border-radius:3px"></div><div style="flex:1;height:16px;background:var(--chapter-4-100);border-radius:3px"></div></div>
+</div>
+

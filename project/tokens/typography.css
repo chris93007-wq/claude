@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@500;600;700&family=Lexend:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+:root{
+--font-display:'Merriweather',Georgia,'Segoe UI',serif;
+--font-body:'Lexend',-apple-system,'Segoe UI',sans-serif;
+--font-mono:'Fira Code',ui-monospace,'SFMono-Regular',monospace;
+--text-xs:13px;--text-sm:15px;--text-base:17px;--text-lg:20px;--text-xl:26px;--text-2xl:34px;--text-3xl:44px;
+--leading-tight:1.2;--leading-body:1.65;
+--weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;
+}

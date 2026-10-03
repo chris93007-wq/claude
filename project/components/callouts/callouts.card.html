@@ -1,0 +1,21 @@
+<!-- @dsCard group="Components" viewport="700x620" name="Callout" subtitle="Pastel note boxes, colored by the chapter they sit in" -->
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<div id="root" style="padding:16px;background:var(--surface-page);display:flex;flex-direction:column;gap:12px"></div>
+<p style="padding:0 16px;font-family:var(--font-body);font-size:13px;color:var(--ink-500);margin:8px 0 0">Pairing rule: text always sits on the chapter's pastel -100 background, colored with its dark -900 ink — never a translucent/alpha-muted tint.</p>
+<script type="text/babel">
+const { Callout } = window.Notes_fd16d9;
+function Demo(){
+  return (
+    <React.Fragment>
+      <Callout chapter={1} label="KEY INSIGHT">Two tools, one agenda: MaxDiff answers "what matters most"; Conjoint answers "how much, in dollars."</Callout>
+      <Callout chapter={11} label="NOTES">Quiz 2 is rescoped to CBC interpretation only — see Week 4 Pre-Class Notes for the official scope.</Callout>
+      <Callout chapter={5} label="MEMORY AID">"Most minus Least, over every appearance" — never divide by selections only.</Callout>
+    </React.Fragment>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>

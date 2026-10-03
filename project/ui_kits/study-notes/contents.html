@@ -1,0 +1,56 @@
+<!-- @dsCard group="Study Notes" viewport="900x640" name="Contents Page" subtitle="Compact 2-column topic list, colored square per topic, dotted leader to page number" -->
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--surface-page)}</style>
+<div id="root"></div>
+<script type="text/babel">
+const { PageBadge } = window.Notes_fd16d9;
+function ContentsPage(){
+  const page = { maxWidth: 820, margin: '0 auto', padding: '40px 32px', fontFamily: 'var(--font-body)', color: 'var(--ink-900)' };
+  const h1 = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 28, margin: '0 0 20px' };
+  const grid = { display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 36 };
+  const col = { display: 'flex', flexDirection: 'column' };
+  const row = { display: 'flex', alignItems: 'baseline', gap: 10, padding: '8px 0' };
+  const sq = (n) => ({ width: 20, height: 20, borderRadius: 5, background: `var(--chapter-${n}-200)`, color: `var(--chapter-${n}-900)`, fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 });
+  const title = { fontSize: 14, color: 'var(--ink-900)' };
+  const leader = { flex: 1, borderBottom: '1px dotted var(--ink-300)', margin: '0 6px', transform: 'translateY(-4px)' };
+  const page_no = { fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--ink-500)' };
+  const left = [
+    { n: 1, chapter: 1, title: 'Topic Map (Overview)', page: 3 },
+    { n: 2, chapter: 7, title: 'MaxDiff (Best-Worst Scaling)', page: 4 },
+    { n: 3, chapter: 11, title: 'TURF', page: 5 },
+    { n: 4, chapter: 4, title: 'MaxDiff → TURF Pipeline', page: 6 },
+    { n: 5, chapter: 13, title: 'Conjoint Analysis', page: 7 },
+  ];
+  const right = [
+    { n: 6, chapter: 9, title: 'Cheat Sheet', page: 8 },
+    { n: 7, chapter: 5, title: 'Formula Sheet', page: 9 },
+    { n: 8, chapter: 10, title: 'Practice Questions', page: 10 },
+    { n: 9, chapter: 8, title: 'Appendix', page: 11 },
+    { n: 10, chapter: 6, title: 'Glossary', page: 12 },
+  ];
+  const Row = (it) => (
+    <div key={it.n} style={row}>
+      <span style={sq(it.chapter)}>{it.n}</span>
+      <span style={title}>{it.title}</span>
+      <span style={leader} />
+      <span style={page_no}>{it.page}</span>
+    </div>
+  );
+  return (
+    <div style={page}>
+      <PageBadge week="Week 3" label="Contents" chapter={1} />
+      <h1 style={h1}>Contents</h1>
+      <div style={grid}>
+        <div style={col}>{left.map(Row)}</div>
+        <div style={col}>{right.map(Row)}</div>
+      </div>
+      <div style={{height:24}} />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<ContentsPage />);
+</script>

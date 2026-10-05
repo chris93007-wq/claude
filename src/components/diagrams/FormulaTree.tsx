@@ -1,4 +1,4 @@
-import { Fragment, type CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { ch, type Chapter } from '../types';
 
 /** Recursive connected-box diagram for walking a calculation top-down: a result, then the operands that produce it, which may break down further. */
@@ -18,13 +18,10 @@ export interface FormulaTreeProps {
   chapter: Chapter;
 }
 
-function OpGlyph({ op }: { op: string }) {
-  const style: CSSProperties = { fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', color: 'var(--ink-500)', fontWeight: 600 };
-  return <span style={style}>{op}</span>;
-}
+const LINE = 'var(--ink-300)';
 
-function Connector() {
-  return <div style={{ width: 2, height: 16, background: 'var(--ink-300)' }} />;
+function Connector({ h = 16 }: { h?: number }) {
+  return <div style={{ width: 2, height: h, background: LINE }} />;
 }
 
 function ValueNode({ node, chapter }: { node: FormulaTreeNode; chapter: Chapter }) {
@@ -36,20 +33,29 @@ function ValueNode({ node, chapter }: { node: FormulaTreeNode; chapter: Chapter 
     color: node.filled ? '#fff' : node.tint ? ch(chapter, 900) : 'var(--ink-900)',
   };
   const label: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-xs)', letterSpacing: '0.05em', textTransform: 'uppercase', color: 'var(--ink-500)', textAlign: 'center' };
-  const row: CSSProperties = { display: 'flex', alignItems: 'center', gap: 'var(--space-3)' };
+  const kids = node.children ?? [];
+  const op = node.op || '×';
   return (
     <div style={col}>
       <div style={box}>{node.value}</div>
       <span style={label}>{node.label}</span>
-      {node.children && node.children.length > 0 && (
+      {kids.length > 0 && (
         <>
-          <Connector />
-          <div style={row}>
-            {node.children.map((c, i) => (
-              <Fragment key={i}>
-                {i > 0 && <OpGlyph op={node.op || '×'} />}
+          {/* stem from this result down to the bar that joins its operands */}
+          <Connector h={12} />
+          <div style={{ display: 'flex', alignItems: 'flex-start', marginTop: -8 }}>
+            {kids.map((c, i) => (
+              <div key={i} style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 var(--space-6)' }}>
+                {/* horizontal bar: from the first operand's center to the last one's */}
+                {kids.length > 1 && <div style={{ position: 'absolute', top: 0, height: 2, background: LINE, left: i === 0 ? '50%' : 0, right: i === kids.length - 1 ? '50%' : 0 }} />}
+                {/* drop from the bar into this operand */}
+                <Connector h={14} />
                 <ValueNode node={c} chapter={chapter} />
-              </Fragment>
+                {/* operator between this operand and the next, level with the value boxes */}
+                {i < kids.length - 1 && (
+                  <span style={{ position: 'absolute', right: -10, top: 14 + 19, transform: 'translate(0, -50%)', width: 20, textAlign: 'center', fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', color: 'var(--ink-500)', fontWeight: 600, background: 'var(--surface-card)', lineHeight: 1 }}>{op}</span>
+                )}
+              </div>
             ))}
           </div>
         </>

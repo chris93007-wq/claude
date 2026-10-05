@@ -40,9 +40,10 @@ function Arrow({ label }: { label?: string }) {
   const seg = (h: number): CSSProperties => ({ width: 2, height: h, background: LINE });
   return (
     <div style={wrap}>
-      <div style={seg(label ? 10 : 16)} />
-      {label && <span style={lbl}>{label}</span>}
-      {label && <div style={seg(8)} />}
+      <div style={seg(10)} />
+      {/* unlabeled edges reserve the same height, so sibling branches always line up */}
+      <span style={{ ...lbl, visibility: label ? 'visible' : 'hidden' }}>{label || '\u00A0'}</span>
+      <div style={seg(8)} />
       <div style={{ width: 0, height: 0, borderLeft: '5px solid transparent', borderRight: '5px solid transparent', borderTop: `6px solid ${LINE}`, marginTop: -1 }} />
     </div>
   );

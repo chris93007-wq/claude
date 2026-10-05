@@ -1,5 +1,6 @@
 import { Children, isValidElement, useEffect, useMemo, type ReactElement, type ReactNode } from 'react';
 import type { Chapter } from '../components/types';
+import { allSettled } from './pending';
 import { DocumentContext, PageSlotContext, type DocumentMeta, type PageSlotValue, type TocEntry } from './context';
 
 declare global {
@@ -54,7 +55,7 @@ export function NotesDocument({ meta, children }: NotesDocumentProps) {
   useEffect(() => {
     document.title = meta.week ? `${meta.title} — ${meta.week}` : meta.title;
     let cancelled = false;
-    document.fonts.ready.then(() => {
+    document.fonts.ready.then(allSettled).then(() => document.fonts.ready).then(() => {
       if (!cancelled) window.__NOTES_READY__ = true;
     });
     return () => {

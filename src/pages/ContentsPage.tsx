@@ -17,11 +17,11 @@ export function ContentsPage({ title = 'Contents' }: ContentsPageProps) {
   const pages = doc?.tocPages ?? {};
   const half = Math.ceil(toc.length / 2);
 
-  const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 22, margin: '0 0 20px' };
-  const grid: CSSProperties = { display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 36 };
-  const row: CSSProperties = { display: 'flex', alignItems: 'baseline', gap: 10, padding: '8px 0' };
+  const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 22, margin: '0 0 15.7px' };
+  const grid: CSSProperties = { display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 28 };
+  const row: CSSProperties = { display: 'flex', alignItems: 'baseline', gap: 8, padding: '6.3px 0' };
   const titleStyle: CSSProperties = { fontSize: 11, color: 'var(--ink-900)' };
-  const leader: CSSProperties = { flex: 1, borderBottom: '1px dotted var(--ink-300)', margin: '0 6px', transform: 'translateY(-4px)' };
+  const leader: CSSProperties = { flex: 1, borderBottom: '1px dotted var(--ink-300)', margin: '0 4.7px', transform: 'translateY(-4px)' };
   const pageNo: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 9.4, color: 'var(--ink-500)', minWidth: 14, textAlign: 'right' };
 
   const Row = (it: TocEntry) => (

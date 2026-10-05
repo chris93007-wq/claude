@@ -41,6 +41,9 @@ These are the design decisions settled in the design sessions. Keep to them.
 - The `PageBadge` on every page uses the document's `brandChapter`, not the topic color.
 - The full Material palette is also available directly: `var(--green-100)`, `var(--deep-orange-700)` and so on.
 
+**Spacing**
+- Spacing tokens (`--space-1` … `--space-10`: 3 · 6 · 9 · 12.5 · 16 · 19 · 25 · 31 · 38 · 50 px) were scaled with the type. Use the tokens, not hard-coded gaps.
+
 **Type size**
 - Body text is **10 pt**. The whole scale is in `src/styles/tokens/typography.css` (xs 8pt · sm 9pt · base 10pt · lg 12pt · xl 15pt · 2xl 20pt · 3xl 26pt). Use these tokens rather than hard-coded sizes, so changing the scale changes everything together.
 
@@ -107,12 +110,37 @@ Any template takes `toc={{ title, chapter }}` to appear on the Contents page.
 | `ComparisonTable` | any data table (`columns[].align`, `columns[].width`) |
 | `Image` | figure + caption; placeholder frame until `src` is set (import images from `notes/assets/`) |
 | `ChapterHeader`, `TopicHeader`, `Section`, `SectionTitle`, `PageBadge`, `PageFooter` | structure |
+| `BarChart` | ranked/compared values; horizontal (long labels, negatives) or vertical; values printed on bars |
+| `LineChart` | 1–4 series; direct end-of-line labels + dash/marker shapes so it reads in black-and-white |
+| `ScatterPlot` | labeled points, optional dashed quadrant lines (importance vs. performance, perceptual maps) |
+| `Mermaid` | auto-laid-out diagrams from text: flowcharts that merge/loop, sequence, state, Gantt, ER, mind maps; themed to the chapter |
 | `Tex` | inline KaTeX anywhere |
 | `Grid` / `Span`, `Columns`, `Full`, `Stack` | 12-column layout, N columns, full-width row, vertical stack |
 
 Prop types are in each component's source file (`src/components/**`), with JSDoc on every prop.
 
+## Charts and diagrams
+
+- Data → `BarChart` / `LineChart` / `ScatterPlot` (SVG, chapter colors, values printed — nothing relies on hover).
+  Give them a `caption` ("Fig. 2 — …"); size with `width`/`height` (a half-width column is about 340 px).
+- Simple top-down trees and decisions → `Flowchart` / `FormulaTree`. Anything that merges, loops or needs swimlanes → `Mermaid`:
+
+```tsx
+<Mermaid chapter={4} caption="Fig. 3 — Survey loop" code={`flowchart TD
+  A[Draft survey] --> B{Pilot ok?}
+  B -- no --> A
+  B -- yes --> C[Field MaxDiff]`} />
+```
+
+A Mermaid syntax error prints a red error box and makes `npm run pdf` fail, so a broken diagram is never silently dropped.
+Wide Gantt charts shrink to fit the column, so keep them short or use landscape.
+
 ## Images
+
+**Generated images (Canva).** Where the Canva connector is available, Claude can generate an illustration with
+Canva's `generate-image` (flat, pastel, no text works best). Canva returns a link and a media ID plus only a
+small preview, which is too small to print. For print quality, open the "Open generated image" link, download the full-size
+file, and save it into `notes/assets/`. Then use it as below. Claude should say this plainly rather than embed the thumbnail.
 
 Put files in `notes/assets/` and import them so Vite bundles them:
 

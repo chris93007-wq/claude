@@ -27,13 +27,13 @@ export function CoverPage({ eyebrow, title, subtitle, credit, dots = [2, 3, 4, 5
   const t = title ?? meta?.title ?? '';
   const credits = credit ?? [meta?.author ? `Prepared by ${meta.author}` : '', 'For personal study use only'].filter(Boolean);
 
-  const sheet: CSSProperties = { height: '11in', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: 64, background: '#fff', fontFamily: 'var(--font-body)', color: 'var(--ink-900)', overflow: 'hidden' };
+  const sheet: CSSProperties = { height: '11in', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: 50, background: '#fff', fontFamily: 'var(--font-body)', color: 'var(--ink-900)', overflow: 'hidden' };
   return (
     <Page cover>
       <div style={sheet}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', color: ch(c, 500) }}>{eb}</div>
         <div>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 50.2, lineHeight: 1.1, margin: '0 0 16px', color: ch(c, 900) }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 50.2, lineHeight: 1.1, margin: '0 0 12.5px', color: ch(c, 900) }}>
             {t.split('\n').map((line, i) => <Fragment key={i}>{i > 0 && <br />}{line}</Fragment>)}
           </h1>
           {(subtitle ?? meta?.subtitle) && <div style={{ fontSize: 17.3, color: 'var(--ink-700)' }}>{subtitle ?? meta?.subtitle}</div>}
@@ -42,7 +42,7 @@ export function CoverPage({ eyebrow, title, subtitle, credit, dots = [2, 3, 4, 5
           <div style={{ fontSize: 11.8, color: 'var(--ink-500)', lineHeight: 1.5 }}>
             {credits.map((line, i) => <Fragment key={i}>{i > 0 && <br />}{line}</Fragment>)}
           </div>
-          <div style={{ display: 'flex', gap: 8 }}>
+          <div style={{ display: 'flex', gap: 6.3 }}>
             {dots.map((d, i) => <div key={i} style={{ width: 20, height: 20, borderRadius: '50%', background: ch(d, 500) }} />)}
           </div>
         </div>

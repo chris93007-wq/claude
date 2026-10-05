@@ -20,8 +20,8 @@ export function FlashCard({ number, title, definition, formula, why, chapter }: 
   const titleStyle: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-sm)', color: ch(chapter, 900) };
   const label: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 7.8, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--ink-500)' };
   const body: CSSProperties = { fontFamily: 'var(--font-body)', fontSize: 10.2, color: 'var(--ink-900)', lineHeight: 1.5 };
-  const formulaBox: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 9.4, color: ch(chapter, 900), background: ch(chapter, 100), borderRadius: 'var(--radius-sm)', padding: '8px 10px', whiteSpace: 'pre-wrap', lineHeight: 1.45 };
-  const section: CSSProperties = { display: 'flex', flexDirection: 'column', gap: 3 };
+  const formulaBox: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 9.4, color: ch(chapter, 900), background: ch(chapter, 100), borderRadius: 'var(--radius-sm)', padding: '6.3px 8px', whiteSpace: 'pre-wrap', lineHeight: 1.45 };
+  const section: CSSProperties = { display: 'flex', flexDirection: 'column', gap: 2.4 };
   return (
     <div style={card}>
       <span style={titleStyle}>{number != null ? `${String(number).padStart(2, '0')} · ${title}` : title}</span>
@@ -39,7 +39,7 @@ export interface FlashcardGridProps {
 }
 
 export function FlashcardGrid({ cards, columns = 2 }: FlashcardGridProps) {
-  const grid: CSSProperties = { display: 'grid', gridTemplateColumns: `repeat(${columns}, 1fr)`, gap: 16 };
+  const grid: CSSProperties = { display: 'grid', gridTemplateColumns: `repeat(${columns}, 1fr)`, gap: 12.5 };
   return (
     <div style={grid}>
       {cards.map((c, i) => (

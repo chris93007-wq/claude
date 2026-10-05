@@ -24,10 +24,10 @@ function Connector({ h = 16 }: { h?: number }) {
   return <div style={{ width: 2, height: h, background: LINE }} />;
 }
 
-function ValueNode({ node, chapter }: { node: FormulaTreeNode; chapter: Chapter }) {
+function ValueNode({ node, chapter, after }: { node: FormulaTreeNode; chapter: Chapter; after?: string }) {
   const col: CSSProperties = { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--space-2)' };
   const box: CSSProperties = {
-    padding: '8px 16px', borderRadius: 'var(--radius-md)', fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 'var(--text-base)',
+    padding: '6.3px 12.5px', borderRadius: 'var(--radius-md)', fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 'var(--text-base)',
     border: node.filled ? 'none' : `1.5px solid ${node.tint ? ch(chapter, 500) : 'var(--line)'}`,
     background: node.filled ? ch(chapter, 900) : node.tint ? ch(chapter, 100) : 'var(--surface-card)',
     color: node.filled ? '#fff' : node.tint ? ch(chapter, 900) : 'var(--ink-900)',
@@ -37,24 +37,24 @@ function ValueNode({ node, chapter }: { node: FormulaTreeNode; chapter: Chapter 
   const op = node.op || '×';
   return (
     <div style={col}>
-      <div style={box}>{node.value}</div>
+      {/* the operator to this box's right is anchored to the box itself, so it always stays level with it */}
+      <div style={{ position: 'relative' }}>
+        <div style={box}>{node.value}</div>
+        {after && <span style={{ position: 'absolute', left: '100%', top: '50%', transform: 'translateY(-50%)', marginLeft: 'var(--space-3)', width: 16, textAlign: 'center', fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', color: 'var(--ink-500)', fontWeight: 600, lineHeight: 1 }}>{after}</span>}
+      </div>
       <span style={label}>{node.label}</span>
       {kids.length > 0 && (
         <>
           {/* stem from this result down to the bar that joins its operands */}
           <Connector h={12} />
-          <div style={{ display: 'flex', alignItems: 'flex-start', marginTop: -8 }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', marginTop: -6.3 }}>
             {kids.map((c, i) => (
               <div key={i} style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 var(--space-6)' }}>
                 {/* horizontal bar: from the first operand's center to the last one's */}
                 {kids.length > 1 && <div style={{ position: 'absolute', top: 0, height: 2, background: LINE, left: i === 0 ? '50%' : 0, right: i === kids.length - 1 ? '50%' : 0 }} />}
                 {/* drop from the bar into this operand */}
                 <Connector h={14} />
-                <ValueNode node={c} chapter={chapter} />
-                {/* operator between this operand and the next, level with the value boxes */}
-                {i < kids.length - 1 && (
-                  <span style={{ position: 'absolute', right: -10, top: 14 + 19, transform: 'translate(0, -50%)', width: 20, textAlign: 'center', fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', color: 'var(--ink-500)', fontWeight: 600, background: 'var(--surface-card)', lineHeight: 1 }}>{op}</span>
-                )}
+                <ValueNode node={c} chapter={chapter} after={i < kids.length - 1 ? op : undefined} />
               </div>
             ))}
           </div>

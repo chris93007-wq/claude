@@ -33,7 +33,7 @@ export function TopicMapPage({ toc, label = 'Overview', title, subtitle, chapter
       <ChapterHeader chapterNumber={chapterNumber ?? doc?.meta.brandChapter ?? 1} week={doc?.meta.week} chapter={label} title={title ?? doc?.meta.title ?? ''} subtitle={subtitle} />
       <FlashcardGrid cards={cards} columns={cardColumns} />
       {/* Chromium ignores break-inside on grid rows, so the intro block is kept together as a whole. */}
-      {children && <div className="no-break" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: 40, rowGap: 20, alignItems: 'start', marginTop: 20 }}>{children}</div>}
+      {children && <div className="no-break" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: 31, rowGap: 15.7, alignItems: 'start', marginTop: 15.7 }}>{children}</div>}
     </Page>
   );
 }

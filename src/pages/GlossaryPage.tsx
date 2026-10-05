@@ -25,13 +25,13 @@ export function GlossaryPage({ toc, title = 'Glossary', entries, chapter }: Glos
       groups.set(letter, [...(groups.get(letter) ?? []), e]);
     });
 
-  const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 22, margin: '0 0 20px' };
-  const letterHead: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 10.2, color: ch(c, 500), letterSpacing: '0.06em', margin: '14px 0 2px', breakAfter: 'avoid' };
-  const entry: CSSProperties = { breakInside: 'avoid', padding: '7px 0', borderBottom: '1px solid var(--line)' };
+  const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 22, margin: '0 0 15.7px' };
+  const letterHead: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 10.2, color: ch(c, 500), letterSpacing: '0.06em', margin: '11px 0 1.6px', breakAfter: 'avoid' };
+  const entry: CSSProperties = { breakInside: 'avoid', padding: '5.5px 0', borderBottom: '1px solid var(--line)' };
   return (
     <Page toc={toc} badge="Glossary">
       <h1 style={h1}>{title}</h1>
-      <div style={{ columnCount: 2, columnGap: 36 }}>
+      <div style={{ columnCount: 2, columnGap: 28 }}>
         {[...groups].map(([letter, items]) => (
           <div key={letter}>
             <div style={letterHead}>{letter}</div>

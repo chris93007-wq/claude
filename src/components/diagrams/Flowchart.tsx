@@ -23,11 +23,11 @@ function Shape({ node, chapter }: { node: FlowchartNode; chapter: Chapter }) {
     return (
       <div style={{ width: size, height: size, position: 'relative' }}>
         <div style={{ position: 'absolute', inset: 0, background: ch(chapter, 100), border: `1.5px solid ${ch(chapter, 500)}`, transform: 'rotate(45deg) scale(0.72)', borderRadius: 6 }} />
-        <div style={{ ...base, position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 12 }}>{node.label}</div>
+        <div style={{ ...base, position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 9.4 }}>{node.label}</div>
       </div>
     );
   }
-  const box: CSSProperties = { ...base, padding: '10px 18px', borderRadius: 'var(--radius-md)', background: node.filled ? ch(chapter, 900) : ch(chapter, 100), color: node.filled ? '#fff' : ch(chapter, 900), border: node.filled ? 'none' : `1.5px solid ${ch(chapter, 500)}` };
+  const box: CSSProperties = { ...base, padding: '8px 14px', borderRadius: 'var(--radius-md)', background: node.filled ? ch(chapter, 900) : ch(chapter, 100), color: node.filled ? '#fff' : ch(chapter, 900), border: node.filled ? 'none' : `1.5px solid ${ch(chapter, 500)}` };
   return <div style={box}>{node.label}</div>;
 }
 
@@ -36,7 +36,7 @@ const LINE = 'var(--ink-300)';
 /** Vertical drop with an optional edge label and an arrowhead into the child. */
 function Arrow({ label }: { label?: string }) {
   const wrap: CSSProperties = { display: 'flex', flexDirection: 'column', alignItems: 'center' };
-  const lbl: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-xs)', color: 'var(--ink-500)', textTransform: 'uppercase', letterSpacing: '0.04em', padding: '2px 0' };
+  const lbl: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-xs)', color: 'var(--ink-500)', textTransform: 'uppercase', letterSpacing: '0.04em', padding: '1.6px 0' };
   const seg = (h: number): CSSProperties => ({ width: 2, height: h, background: LINE });
   return (
     <div style={wrap}>

@@ -53,7 +53,7 @@ npm run skill:zip      # → skill-dist/christines-notes.zip
 | `notes/design-system.tsx` | The design system as a printable spec: palette, type, spacing, brand, layout, every component |
 | `notes/_template.tsx` | Starter packet used by `npm run new` |
 | `src/styles/` | Tokens (Material palette, chapter aliases, type, spacing, radius/shadow), base + highlighter/badge CSS, print geometry |
-| `src/components/` | The 20 design-system components, typed |
+| `src/components/` | The design-system components, typed: callouts, cards, tables, diagrams, charts, Mermaid, media |
 | `src/pages/` | Page templates |
 | `src/document/` | `NotesDocument` (meta, Contents, footer) and `Page` |
 | `src/layout/` | 12-column `Grid`/`Span`, `Columns`, `Full`, `Stack` |

@@ -19,7 +19,7 @@ export interface ChapterHeaderProps {
 
 export function ChapterHeader({ week, chapterNumber, chapter = 'Chapter 1', eyebrow, title, subtitle, topics = [] }: ChapterHeaderProps) {
   const wrap: CSSProperties = { display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', padding: 'var(--space-7) 0 var(--space-6)', breakInside: 'avoid' };
-  const badge: CSSProperties = { background: ch(chapterNumber, 100), color: ch(chapterNumber, 900), fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-xs)', letterSpacing: '0.08em', padding: '5px 14px', borderRadius: 'var(--radius-pill)', width: 'fit-content', textTransform: 'uppercase' };
+  const badge: CSSProperties = { background: ch(chapterNumber, 100), color: ch(chapterNumber, 900), fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-xs)', letterSpacing: '0.08em', padding: '4px 11px', borderRadius: 'var(--radius-pill)', width: 'fit-content', textTransform: 'uppercase' };
   const mono: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 'var(--text-sm)', color: 'var(--ink-500)', letterSpacing: '0.04em' };
   const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-3xl)', color: 'var(--ink-900)', lineHeight: 'var(--leading-tight)', margin: 0 };
   const sub: CSSProperties = { fontFamily: 'var(--font-body)', fontSize: 'var(--text-lg)', color: 'var(--ink-700)', margin: 0 };
@@ -28,7 +28,7 @@ export function ChapterHeader({ week, chapterNumber, chapter = 'Chapter 1', eyeb
   const topicNum: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-sm)', minWidth: 22 };
   return (
     <div style={wrap}>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 9.4 }}>
         {week && <span style={badge}>{week}</span>}
         <span style={mono}>{chapter}</span>
         {eyebrow && <span style={mono}>{eyebrow}</span>}

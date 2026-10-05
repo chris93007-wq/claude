@@ -52,7 +52,7 @@ export default function Week03() {
           { title: 'Conjoint Analysis', chapter: C.conjoint, definition: 'Turns trade-off choices into willingness-to-pay, in real dollars.', formula: 'WTP = attribute’s utility ÷ utils per dollar.', why: 'Price is the only attribute in real dollars, so dividing by it converts utils back to dollars.' },
         ]}
       >
-        <Full style={{ margin: '8px 0 0' }}>
+        <Full style={{ margin: '6.3px 0 0' }}>
           <SectionTitle chapter={C.overview}>Introduction</SectionTitle>
         </Full>
         <p className="prose no-break">
@@ -190,8 +190,8 @@ export default function Week03() {
       {/* ───────────── Topic 5 · Conjoint ───────────── */}
       <NotesPage toc={{ title: 'Conjoint Analysis', chapter: C.conjoint }}>
         <TopicHeader topicNumber={5} title="Conjoint Analysis" kicker="Part-worths, utility, and willingness to pay" />
-        <div style={{ margin: '16px 0' }}><span className={`badge ch-${C.conjoint}`}>Ratings-based conjoint</span></div>
-        <Columns count={2} style={{ marginBottom: 18 }}>
+        <div style={{ margin: '12.5px 0' }}><span className={`badge ch-${C.conjoint}`}>Ratings-based conjoint</span></div>
+        <Columns count={2} style={{ marginBottom: 14 }}>
           <p className="prose-sm">
             Conjoint analysis shows respondents full product profiles — several attributes bundled together, like a camera with a resolution, battery life, and price — and asks them to rate or choose between profiles. Because every attribute moves at once, the trade-offs respondents are forced to make reveal how much each attribute level is actually worth, rather than how important they say it is.
           </p>
@@ -202,7 +202,7 @@ export default function Week03() {
             Each attribute level (e.g. “50ft range” vs. “5ft range”) gets its own part-worth — a number representing how much that level alone contributes to a respondent’s overall liking. A profile’s total utility is just the sum of the part-worths for its levels.
           </p>
         </Section>
-        <Columns count={2} style={{ margin: '18px 0' }}>
+        <Columns count={2} style={{ margin: '14px 0' }}>
           <ConceptCard
             chapter={C.conjoint}
             term="Utility"

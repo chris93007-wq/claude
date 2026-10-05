@@ -37,6 +37,11 @@ cd christines-notes-work && npm install
 3. `npm run new -- week-NN-topic "Title"` creates `notes/week-NN-topic.tsx` from the template. Replace every TODO.
 4. Follow the rules strictly: one contrasting chapter color per topic, used everywhere that topic appears; red/green/yellow never as chapter colors; `<mark>` is the only highlight; callouts only KEY INSIGHT / NOTES / MEMORY AID; every concept has definition + formula + why; everything printable (nothing hidden); exact numbers with their formula; no emoji.
 
+### Charts, diagrams and images
+
+- Numbers → `BarChart` / `LineChart` / `ScatterPlot`. Simple trees → `Flowchart` / `FormulaTree`. Merging/looping diagrams, sequences, Gantt → `Mermaid` (text in, themed SVG out). See `AUTHORING.md`.
+- Images: if Canva tools are available (`generate-image`), you may generate a flat pastel illustration for a topic. Canva only returns a link, a media ID and a small preview, which is NOT print quality. Tell the user to open the link, download the full-size image and save it to `notes/assets/`, then reference it with `<Image src={…}>`. Never embed the thumbnail as if it were final. If Canva isn't available, use an `<Image>` placeholder frame (no `src`) with a clear alt text, or draw the idea with Mermaid/SVG components.
+
 ## 3. Render
 
 ```bash

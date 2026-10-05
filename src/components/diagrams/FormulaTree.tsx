@@ -27,7 +27,7 @@ function Connector({ h = 16 }: { h?: number }) {
 function ValueNode({ node, chapter, after }: { node: FormulaTreeNode; chapter: Chapter; after?: string }) {
   const col: CSSProperties = { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--space-2)' };
   const box: CSSProperties = {
-    padding: '6.3px 12.5px', borderRadius: 'var(--radius-md)', fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 'var(--text-base)',
+    padding: '6.9px 13.8px', borderRadius: 'var(--radius-md)', fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 'var(--text-base)',
     border: node.filled ? 'none' : `1.5px solid ${node.tint ? ch(chapter, 500) : 'var(--line)'}`,
     background: node.filled ? ch(chapter, 900) : node.tint ? ch(chapter, 100) : 'var(--surface-card)',
     color: node.filled ? '#fff' : node.tint ? ch(chapter, 900) : 'var(--ink-900)',
@@ -47,7 +47,7 @@ function ValueNode({ node, chapter, after }: { node: FormulaTreeNode; chapter: C
         <>
           {/* stem from this result down to the bar that joins its operands */}
           <Connector h={12} />
-          <div style={{ display: 'flex', alignItems: 'flex-start', marginTop: -6.3 }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', marginTop: -6.9 }}>
             {kids.map((c, i) => (
               <div key={i} style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 var(--space-6)' }}>
                 {/* horizontal bar: from the first operand's center to the last one's */}

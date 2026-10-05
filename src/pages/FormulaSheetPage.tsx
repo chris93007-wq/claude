@@ -21,11 +21,11 @@ export interface FormulaSheetPageProps {
 /** Formulas + variables only: a Concept / Decomposition / Formula table grouped under chapter-colored section bands. */
 export function FormulaSheetPage({ toc, title, sections }: FormulaSheetPageProps) {
   const doc = useDocument();
-  const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 23.5, margin: '0 0 14px', lineHeight: 'var(--leading-tight)' };
-  const colHead: CSSProperties = { textAlign: 'left', padding: '4.7px 11px', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 11.8, borderBottom: '2px solid var(--ink-900)' };
-  const td1: CSSProperties = { padding: '8px 11px', fontSize: 11.4, fontWeight: 600, verticalAlign: 'top', width: '20%' };
-  const td2: CSSProperties = { padding: '8px 11px', fontSize: 10.6, color: 'var(--ink-700)', lineHeight: 1.5, verticalAlign: 'top', width: '34%' };
-  const td3: CSSProperties = { padding: '8px 11px', verticalAlign: 'top' };
+  const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 25.9, margin: '0 0 15.4px', lineHeight: 'var(--leading-tight)' };
+  const colHead: CSSProperties = { textAlign: 'left', padding: '5.2px 12.1px', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 13, borderBottom: '2px solid var(--ink-900)' };
+  const td1: CSSProperties = { padding: '8.8px 12.1px', fontSize: 12.5, fontWeight: 600, verticalAlign: 'top', width: '20%' };
+  const td2: CSSProperties = { padding: '8.8px 12.1px', fontSize: 11.7, color: 'var(--ink-700)', lineHeight: 1.5, verticalAlign: 'top', width: '34%' };
+  const td3: CSSProperties = { padding: '8.8px 12.1px', verticalAlign: 'top' };
   return (
     <Page toc={toc} badge="Formula Sheet">
       <h1 style={h1}>{title ?? `Formula Sheet — ${doc?.meta.title ?? ''}`}</h1>
@@ -38,14 +38,14 @@ export function FormulaSheetPage({ toc, title, sections }: FormulaSheetPageProps
         <tbody>
           {sections.map((s, si) => (
             <Fragment key={si}>
-              <tr style={{ background: ch(s.chapter, 100), color: ch(s.chapter, 900), fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 11.8, breakAfter: 'avoid' }}>
-                <td style={{ padding: '4.7px 11px' }} colSpan={3}>{s.name}</td>
+              <tr style={{ background: ch(s.chapter, 100), color: ch(s.chapter, 900), fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 13, breakAfter: 'avoid' }}>
+                <td style={{ padding: '5.2px 12.1px' }} colSpan={3}>{s.name}</td>
               </tr>
               {s.rows.map((r, i) => (
                 <tr key={i} style={i === s.rows.length - 1 ? undefined : { borderBottom: '1px solid var(--line)' }}>
                   <td style={td1}>{r.concept}</td>
                   <td style={td2}>{r.decomp}</td>
-                  <td style={td3}><Tex tex={r.tex} style={{ fontSize: 11 }} /></td>
+                  <td style={td3}><Tex tex={r.tex} style={{ fontSize: 12.1 }} /></td>
                 </tr>
               ))}
             </Fragment>

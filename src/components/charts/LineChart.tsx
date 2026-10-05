@@ -28,7 +28,7 @@ const DASHES = [undefined, '7 4', '2 3', '10 3 2 3'];
 
 export function LineChart({ series, xLabel, yLabel, yUnit = '', xUnit = '', zeroBased = true, width = 520, height = 280, caption }: LineChartProps) {
   const longest = Math.max(...series.map((s) => s.name.length));
-  const m = { t: 14, r: Math.min(130, 16 + longest * 6.6), b: xLabel ? 46 : 28, l: yLabel ? 58 : 44 };
+  const m = { t: 14, r: Math.min(130, 17 + longest * 7.3), b: xLabel ? 46 : 28, l: yLabel ? 58 : 44 };
   const iw = width - m.l - m.r;
   const ih = height - m.t - m.b;
   const xs = series.flatMap((s) => s.points.map((p) => p.x));

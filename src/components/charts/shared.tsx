@@ -2,8 +2,8 @@ import type { CSSProperties, ReactNode } from 'react';
 
 export const FONT = 'var(--font-body)';
 export const MONO = 'var(--font-mono)';
-export const TICK = 11; // px — about 8pt, the "xs" step of the type scale
-export const LABEL = 12;
+export const TICK = 12; // px — about 8pt, the "xs" step of the type scale
+export const LABEL = 13;
 
 /** Figure wrapper shared by every chart: SVG scales down to fit its column, caption underneath, never split across pages. */
 export function ChartFrame({ width, height, caption, children, label }: { width: number; height: number; caption?: string; children: ReactNode; label?: string }) {

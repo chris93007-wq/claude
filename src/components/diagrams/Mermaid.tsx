@@ -35,7 +35,7 @@ async function renderMermaid(id: string, code: string, chapter: Chapter): Promis
       fontFamily: body,
       themeVariables: {
         fontFamily: body,
-        fontSize: '13px',
+        fontSize: '14.5px',
         background: '#ffffff',
         primaryColor: c(100),
         primaryBorderColor: c(500),
@@ -114,7 +114,7 @@ export function Mermaid({ code, chapter, caption, maxWidth }: MermaidProps) {
   return (
     <figure style={fig}>
       {error ? (
-        <pre style={{ margin: 0, padding: 9.4, border: '1.5px solid var(--red-700)', borderRadius: 'var(--radius-md)', color: 'var(--red-900)', background: 'var(--red-50)', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', whiteSpace: 'pre-wrap' }}>Mermaid error: {error.split('\n')[0]}</pre>
+        <pre style={{ margin: 0, padding: 10.3, border: '1.5px solid var(--red-700)', borderRadius: 'var(--radius-md)', color: 'var(--red-900)', background: 'var(--red-50)', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', whiteSpace: 'pre-wrap' }}>Mermaid error: {error.split('\n')[0]}</pre>
       ) : (
         <div style={box} dangerouslySetInnerHTML={{ __html: svg ?? '' }} />
       )}

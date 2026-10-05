@@ -12,10 +12,10 @@ export function StepPipeline({ steps, chapter }: StepPipelineProps) {
   const wrap: CSSProperties = { display: 'flex', flexWrap: 'wrap', alignItems: 'stretch', gap: 'var(--space-3)', breakInside: 'avoid' };
   const stepBox: CSSProperties = { flex: '1 1 160px', display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', background: 'var(--surface-card)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)', padding: 'var(--space-4)' };
   const headRow: CSSProperties = { display: 'flex', alignItems: 'center', gap: 'var(--space-2)' };
-  const num: CSSProperties = { width: 28, height: 28, flexShrink: 0, borderRadius: '50%', background: ch(chapter, 500), color: '#fff', fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center' };
+  const num: CSSProperties = { width: 31, height: 31, flexShrink: 0, borderRadius: '50%', background: ch(chapter, 500), color: '#fff', fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center' };
   const label: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-sm)', color: 'var(--ink-900)', lineHeight: 1.3 };
   const body: CSSProperties = { fontFamily: 'var(--font-body)', fontSize: 'var(--text-sm)', color: 'var(--ink-700)', lineHeight: 'var(--leading-body)' };
-  const arrow: CSSProperties = { display: 'flex', alignItems: 'center', fontSize: 'var(--text-xl)', color: 'var(--ink-300)', padding: '0 1.6px' };
+  const arrow: CSSProperties = { display: 'flex', alignItems: 'center', fontSize: 'var(--text-xl)', color: 'var(--ink-300)', padding: '0 1.8px' };
   const nodes: ReactNode[] = [];
   steps.forEach((s, i) => {
     nodes.push(

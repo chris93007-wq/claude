@@ -42,10 +42,10 @@ These are the design decisions settled in the design sessions. Keep to them.
 - The full Material palette is also available directly: `var(--green-100)`, `var(--deep-orange-700)` and so on.
 
 **Spacing**
-- Spacing tokens (`--space-1` … `--space-10`: 3 · 6 · 9 · 12.5 · 16 · 19 · 25 · 31 · 38 · 50 px) were scaled with the type. Use the tokens, not hard-coded gaps.
+- Spacing tokens (`--space-1` … `--space-10`: 3.3 · 6.9 · 10.3 · 13.8 · 17.3 · 20.9 · 27.5 · 34.1 · 41.8 · 55 px) were scaled with the type. Use the tokens, not hard-coded gaps.
 
 **Type size**
-- Body text is **10 pt**. The whole scale is in `src/styles/tokens/typography.css` (xs 8pt · sm 9pt · base 10pt · lg 12pt · xl 15pt · 2xl 20pt · 3xl 26pt). Use these tokens rather than hard-coded sizes, so changing the scale changes everything together.
+- Body text is **11 pt**. The whole scale is in `src/styles/tokens/typography.css` (xs 8.8pt · sm 9.9pt · base 11pt · lg 13.2pt · xl 16.5pt · 2xl 22pt · 3xl 28.6pt). Use these tokens rather than hard-coded sizes, so changing the scale changes everything together.
 
 **Emphasis** (plain HTML, no components)
 - `<mark>…</mark>` is the yellow highlighter. **It's the only highlight color.**

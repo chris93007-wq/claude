@@ -18,7 +18,7 @@
   margin:0.5in;
   @bottom-left{
     content:"";
-    vertical-align:top;padding-top:12px;
+    vertical-align:top;padding-top:13px;
     border-top:1px solid var(--line);
     font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.02em;color:var(--ink-500);
   }

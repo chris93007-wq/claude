@@ -25,9 +25,9 @@ export function AppendixPage({ toc, label, title, kicker, intro, chapter, orient
   const doc = useDocument();
   return (
     <Page toc={toc} badge="Appendix" orientation={orientation}>
-      {label && <div style={{ marginBottom: 9.4 }}><span className={`badge ch-${chapter ?? doc?.meta.brandChapter ?? 1}`}>{label}</span></div>}
+      {label && <div style={{ marginBottom: 10.3 }}><span className={`badge ch-${chapter ?? doc?.meta.brandChapter ?? 1}`}>{label}</span></div>}
       <TopicHeader title={title} kicker={kicker} />
-      {intro && <p style={{ fontSize: 'var(--text-base)', lineHeight: 1.65, margin: '12.5px 0 15.7px' }}>{intro}</p>}
+      {intro && <p style={{ fontSize: 'var(--text-base)', lineHeight: 1.65, margin: '13.8px 0 17.3px' }}>{intro}</p>}
       {children}
     </Page>
   );

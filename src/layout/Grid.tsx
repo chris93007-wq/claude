@@ -20,7 +20,7 @@ export interface GridProps {
   children?: ReactNode;
 }
 
-export function Grid({ columns = 12, gap = 19, rowGap = 16, style, children }: GridProps) {
+export function Grid({ columns = 12, gap = 21, rowGap = 17, style, children }: GridProps) {
   return <div style={{ display: 'grid', gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`, columnGap: gap, rowGap, alignItems: 'start', ...style }}>{children}</div>;
 }
 
@@ -43,7 +43,7 @@ export interface ColumnsProps {
   children?: ReactNode;
 }
 
-export function Columns({ count = 2, gap = 25, rowGap = 14, style, children }: ColumnsProps) {
+export function Columns({ count = 2, gap = 27, rowGap = 15, style, children }: ColumnsProps) {
   return <div style={{ display: 'grid', gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))`, columnGap: gap, rowGap, alignItems: 'start', ...style }}>{children}</div>;
 }
 
@@ -53,6 +53,6 @@ export function Full({ style, children }: { style?: CSSProperties; children?: Re
 }
 
 /** Vertical stack with consistent gap — for grouping several blocks inside one grid cell. */
-export function Stack({ gap = 16, style, children }: { gap?: number; style?: CSSProperties; children?: ReactNode }) {
+export function Stack({ gap = 17, style, children }: { gap?: number; style?: CSSProperties; children?: ReactNode }) {
   return <div style={{ display: 'flex', flexDirection: 'column', gap, minWidth: 0, ...style }}>{children}</div>;
 }

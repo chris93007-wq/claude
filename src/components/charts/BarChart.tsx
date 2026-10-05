@@ -26,10 +26,10 @@ export interface BarChartProps {
 
 export function BarChart({ data, chapter, orientation = 'horizontal', unit = '', valueLabel, width = 520, height, caption }: BarChartProps) {
   const horizontal = orientation === 'horizontal';
-  const rowH = 26;
+  const rowH = 29;
   const H = height ?? (horizontal ? Math.max(120, data.length * rowH + 52) : 280);
   const longest = Math.max(...data.map((d) => d.label.length));
-  const m = horizontal ? { t: 8, r: 52, b: valueLabel ? 40 : 26, l: Math.min(190, 14 + longest * 6.2) } : { t: 22, r: 12, b: 54, l: 44 };
+  const m = horizontal ? { t: 8, r: 52, b: valueLabel ? 40 : 26, l: Math.min(190, 15 + longest * 6.8) } : { t: 22, r: 12, b: 54, l: 44 };
   const iw = width - m.l - m.r;
   const ih = H - m.t - m.b;
   const vals = data.map((d) => d.value);

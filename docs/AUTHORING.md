@@ -122,3 +122,10 @@ import profileCard from './assets/profile-card.png';
 - Warns when something is wider than the printable area and would be clipped. It names the page and the text.
 - Fails on React/runtime errors.
 - Fills in the Contents page numbers in a second pass and warns if they shift.
+
+## Using it in the Claude desktop app (Claude chat / Cowork)
+
+`npm run skill:zip` builds `skill-dist/christines-notes.zip`: a self-contained skill (SKILL.md + the whole generator).
+Upload it in the app under Settings → Capabilities → Skills, then ask for notes or type `/christines-notes`.
+The environment it runs in needs Node 18+, access to the npm registry, and a Chromium/Chrome. If any is missing the
+skill says so and delivers the `.tsx` source to render on your own machine instead.

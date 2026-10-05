@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "pdf": "vite build && tsx scripts/pdf.ts",
     "pdf:only": "tsx scripts/pdf.ts",
-    "new": "tsx scripts/new.ts"
+    "new": "tsx scripts/new.ts",
+    "skill:zip": "tsx scripts/package-skill.ts"
   },
   "dependencies": {
     "@fontsource-variable/fira-code": "^5.3.0",

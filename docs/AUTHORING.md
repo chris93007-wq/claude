@@ -67,7 +67,7 @@ These are the design decisions settled in the design sessions. Keep to them.
 - Everything must be printable. Nothing hidden, collapsed or tooltip-only. Quiz answers are printed under each
   question.
 - Use space-saving layouts: 2 columns (`<Columns>`) for short paired blocks in portrait, and landscape
-  with 3–4 columns for dense reference pages (Cheat Sheet, Appendix).
+  with 3–4 columns for dense reference pages. The Cheat Sheet picks its own orientation: portrait when it's small, landscape when it's big.
 
 **Concepts**
 - Every concept gets a plain-language definition, the formula (KaTeX in `ConceptCard`, *in words* in
@@ -81,7 +81,7 @@ These are the design decisions settled in the design sessions. Keep to them.
 | `ContentsPage` | portrait | Contents | — | built from every page's `toc`; page numbers filled by `npm run pdf` |
 | `TopicMapPage` | portrait | ChapterHeader | ✓ | flashcard per topic + 2-col intro (`<Full>` spans both columns) |
 | `NotesPage` | portrait* | Notes Page | ✓ | free content; plain `<p>` gets notes body style |
-| `CheatSheetPage` | landscape | Cheat Sheet | ✓ | one column per topic: bullets + formula in words |
+| `CheatSheetPage` | auto: portrait if small, landscape if dense | Cheat Sheet | ✓ | one column per topic: bullets + formula in words. Portrait = 2 columns, regular type; landscape (>4 topics or >16 bullets) = 4 columns, ultra-dense. Override with `orientation` / `perRow` |
 | `FormulaSheetPage` | portrait | Formula Sheet | ✓ | Concept / Decomposition / KaTeX formula, chapter bands |
 | `QuizPage` | portrait | — | — | one chapter color; light-green answer strip |
 | `AppendixPage` | landscape* | Appendix | ✓ | label badge, TopicHeader, intro, then a wide table |

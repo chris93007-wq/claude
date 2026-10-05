@@ -9,7 +9,7 @@ export interface ContentsPageProps {
 
 /**
  * Compact 2-column contents list: a numbered chapter-200 badge per entry, title, dotted leader, page number.
- * Entries come from every page's `toc` prop; page numbers are filled in by `npm run pdf` (blank on screen).
+ * Every row is a link that jumps to its page (a real link in the PDF, too). Entries come from every page's `toc` prop; page numbers are filled in by `npm run pdf` (blank on screen).
  */
 export function ContentsPage({ title = 'Contents' }: ContentsPageProps) {
   const doc = useDocument();
@@ -19,18 +19,18 @@ export function ContentsPage({ title = 'Contents' }: ContentsPageProps) {
 
   const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 24.2, margin: '0 0 17.3px' };
   const grid: CSSProperties = { display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 30.8 };
-  const row: CSSProperties = { display: 'flex', alignItems: 'baseline', gap: 8.8, padding: '6.9px 0' };
+  const row: CSSProperties = { color: 'inherit', textDecoration: 'none', display: 'flex', alignItems: 'baseline', gap: 8.8, padding: '6.9px 0' };
   const titleStyle: CSSProperties = { fontSize: 12.1, color: 'var(--ink-900)' };
   const leader: CSSProperties = { flex: 1, borderBottom: '1px dotted var(--ink-300)', margin: '0 5.2px', transform: 'translateY(-4px)' };
   const pageNo: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 10.3, color: 'var(--ink-500)', minWidth: 14, textAlign: 'right' };
 
   const Row = (it: TocEntry) => (
-    <div key={it.n} style={row}>
+    <a key={it.n} href={`#toc-${it.n}`} style={row} aria-label={`Go to ${it.title}`}>
       <span style={{ width: 22, height: 22, borderRadius: 5, background: ch(it.chapter, 200), color: ch(it.chapter, 900), fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 8.6, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, alignSelf: 'center' }}>{it.n}</span>
       <span style={titleStyle}>{it.title}</span>
       <span style={leader} />
       <span style={pageNo}>{pages[it.n] ?? ''}</span>
-    </div>
+    </a>
   );
 
   return (

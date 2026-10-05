@@ -75,6 +75,8 @@ These are the design decisions settled in the design sessions. Keep to them.
 
 ## Page templates
 
+Not every packet needs every page. The Appendix in particular is optional: add one only when there is reference material that would clutter the topic pages, never just to fill the packet.
+
 | Template | Orientation | Badge | Footer | Notes |
 |---|---|---|---|---|
 | `CoverPage` | portrait | — | — | title/eyebrow from `meta`; `dots` = topic chapters |
@@ -84,7 +86,7 @@ These are the design decisions settled in the design sessions. Keep to them.
 | `CheatSheetPage` | auto: portrait if small, landscape if dense | Cheat Sheet | ✓ | one column per topic: bullets + formula in words. Portrait = 2 columns, regular type; landscape (>4 topics or >16 bullets) = 4 columns, ultra-dense. Override with `orientation` / `perRow` |
 | `FormulaSheetPage` | portrait | Formula Sheet | ✓ | Concept / Decomposition / KaTeX formula, chapter bands |
 | `QuizPage` | portrait | — | — | one chapter color; light-green answer strip |
-| `AppendixPage` | landscape* | Appendix | ✓ | label badge, TopicHeader, intro, then a wide table |
+| `AppendixPage` | landscape* | Appendix | ✓ | **Optional.** Only for real reference material that would clutter the topic pages (big data tables, derivations). label badge, TopicHeader, intro, then a wide table |
 | `GlossaryPage` | portrait | Glossary | ✓ | auto-sorted 2-column dictionary |
 | `Page` | either | optional | optional | build any custom page |
 

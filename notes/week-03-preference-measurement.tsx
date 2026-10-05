@@ -1,5 +1,5 @@
 import {
-  AppendixPage, Callout, Chain, CheatSheetPage, Columns, ComparisonTable, ConceptCard, ContentsPage, CoverPage,
+  Callout, Chain, CheatSheetPage, Columns, ComparisonTable, ConceptCard, ContentsPage, CoverPage,
   FormulaSheetPage, Flowchart, Full, GlossaryPage, Image, KeyTermsTable, Matrix, NotesDocument, NotesPage, QuizPage,
   Section, SectionTitle, Split, Stack, StepPipeline, TopicHeader, TopicMapPage, WorkedExample, type Chapter,
 } from '@notes';
@@ -20,7 +20,6 @@ const C = {
   cheat: 9,
   formulas: 5,
   practice: 10,
-  appendix: 8,
   glossary: 6,
 } satisfies Record<string, Chapter>;
 
@@ -288,35 +287,6 @@ export default function Week03() {
           { q: 'Why does MaxDiff ask for Most AND Least, instead of just “pick your favorite”?', a: 'Picking only a favorite wastes the rest of the choice set — forcing a Least pick extracts information about every item shown, not just the winner.' },
         ]}
       />
-
-      <AppendixPage
-        toc={{ title: 'Appendix', chapter: C.appendix }}
-        chapter={C.appendix}
-        label="Appendix A"
-        title="Full MaxDiff Ranking — Pecan Street Bank, 12 Perks"
-        kicker="Supporting data for Topic 2 and Topic 3"
-        intro="Net choice score for every perk tested, ranked highest to lowest. Topic 3’s TURF bundles are built from this full ranking."
-      >
-        <ComparisonTable
-          dense
-          chapter={C.appendix}
-          columns={[{ key: 'rank', label: 'Rank', width: '8%' }, { key: 'perk', label: 'Perk' }, { key: 'most', label: 'Most %', align: 'right' }, { key: 'least', label: 'Least %', align: 'right' }, { key: 'net', label: 'Net Score', align: 'right' }]}
-          rows={[
-            { rank: 1, perk: 'Groceries cashback', most: '50.3%', least: '6.5%', net: '+43.8pp' },
-            { rank: 2, perk: 'Foreign transaction fees waived', most: '41.0%', least: '9.2%', net: '+31.8pp' },
-            { rank: 3, perk: 'Intro 0% APR (12 mo)', most: '38.4%', least: '11.0%', net: '+27.4pp' },
-            { rank: 4, perk: 'Gas / EV charging cashback', most: '35.7%', least: '13.1%', net: '+22.6pp' },
-            { rank: 5, perk: 'Fraud alerts & card lock', most: '29.9%', least: '15.6%', net: '+14.3pp' },
-            { rank: 6, perk: 'Late-fee forgiveness (1x/yr)', most: '26.2%', least: '17.8%', net: '+8.4pp' },
-            { rank: 7, perk: 'Travel insurance', most: '21.5%', least: '21.0%', net: '+0.5pp' },
-            { rank: 8, perk: 'Airport lounge access', most: '18.3%', least: '28.4%', net: '−10.1pp' },
-            { rank: 9, perk: 'Extended warranty', most: '14.1%', least: '31.2%', net: '−17.1pp' },
-            { rank: 10, perk: 'Concierge service', most: '9.6%', least: '38.9%', net: '−29.3pp' },
-            { rank: 11, perk: 'Rental car insurance', most: '7.8%', least: '41.5%', net: '−33.7pp' },
-            { rank: 12, perk: 'Identity theft monitoring', most: '6.2%', least: '45.8%', net: '−39.6pp' },
-          ]}
-        />
-      </AppendixPage>
 
       <GlossaryPage
         toc={{ title: 'Glossary', chapter: C.glossary }}

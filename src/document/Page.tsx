@@ -29,7 +29,7 @@ export function Page({ orientation = 'portrait', footer = true, badge, cover = f
   const slot = usePageSlot();
   const name = cover ? 'cover' : footer ? (orientation === 'landscape' ? 'landscape' : 'portrait') : `${orientation}-bare`;
   return (
-    <section className={['page', className].filter(Boolean).join(' ')} data-page={name} data-orientation={orientation} style={style}>
+    <section id={slot?.tocEntry ? `toc-${slot.tocEntry.n}` : undefined} className={['page', className].filter(Boolean).join(' ')} data-page={name} data-orientation={orientation} style={style}>
       {slot?.tocEntry && <span className="toc-marker" aria-hidden="true">TOCMARK-{slot.tocEntry.n}-</span>}
       <div className="page-body">
         {badge && <PageBadge label={badge} />}

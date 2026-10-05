@@ -27,7 +27,7 @@ export function AppendixPage({ toc, label, title, kicker, intro, chapter, orient
     <Page toc={toc} badge="Appendix" orientation={orientation}>
       {label && <div style={{ marginBottom: 12 }}><span className={`badge ch-${chapter ?? doc?.meta.brandChapter ?? 1}`}>{label}</span></div>}
       <TopicHeader title={title} kicker={kicker} />
-      {intro && <p style={{ fontSize: 16, lineHeight: 1.65, margin: '16px 0 20px' }}>{intro}</p>}
+      {intro && <p style={{ fontSize: 'var(--text-base)', lineHeight: 1.65, margin: '16px 0 20px' }}>{intro}</p>}
       {children}
     </Page>
   );

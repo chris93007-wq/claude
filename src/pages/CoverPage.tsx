@@ -31,15 +31,15 @@ export function CoverPage({ eyebrow, title, subtitle, credit, dots = [2, 3, 4, 5
   return (
     <Page cover>
       <div style={sheet}>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, letterSpacing: '0.08em', color: ch(c, 500) }}>{eb}</div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', color: ch(c, 500) }}>{eb}</div>
         <div>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 64, lineHeight: 1.1, margin: '0 0 16px', color: ch(c, 900) }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 50.2, lineHeight: 1.1, margin: '0 0 16px', color: ch(c, 900) }}>
             {t.split('\n').map((line, i) => <Fragment key={i}>{i > 0 && <br />}{line}</Fragment>)}
           </h1>
-          {(subtitle ?? meta?.subtitle) && <div style={{ fontSize: 22, color: 'var(--ink-700)' }}>{subtitle ?? meta?.subtitle}</div>}
+          {(subtitle ?? meta?.subtitle) && <div style={{ fontSize: 17.3, color: 'var(--ink-700)' }}>{subtitle ?? meta?.subtitle}</div>}
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-          <div style={{ fontSize: 15, color: 'var(--ink-500)', lineHeight: 1.5 }}>
+          <div style={{ fontSize: 11.8, color: 'var(--ink-500)', lineHeight: 1.5 }}>
             {credits.map((line, i) => <Fragment key={i}>{i > 0 && <br />}{line}</Fragment>)}
           </div>
           <div style={{ display: 'flex', gap: 8 }}>

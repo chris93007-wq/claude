@@ -41,6 +41,9 @@ These are the design decisions settled in the design sessions. Keep to them.
 - The `PageBadge` on every page uses the document's `brandChapter`, not the topic color.
 - The full Material palette is also available directly: `var(--green-100)`, `var(--deep-orange-700)` and so on.
 
+**Type size**
+- Body text is **10 pt**. The whole scale is in `src/styles/tokens/typography.css` (xs 8pt · sm 9pt · base 10pt · lg 12pt · xl 15pt · 2xl 20pt · 3xl 26pt). Use these tokens rather than hard-coded sizes, so changing the scale changes everything together.
+
 **Emphasis** (plain HTML, no components)
 - `<mark>…</mark>` is the yellow highlighter. **It's the only highlight color.**
 - `<strong>…</strong>` is plain bold.

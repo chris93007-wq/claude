@@ -14,16 +14,16 @@ function Specimen({ name, subtitle, children }: { name: string; subtitle?: strin
   return (
     <div style={{ marginBottom: 28 }}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 10, borderBottom: '1px solid var(--line)', paddingBottom: 6, breakAfter: 'avoid' }}>
-        <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 15 }}>{name}</span>
-        {subtitle && <span style={{ fontSize: 12, color: 'var(--ink-500)' }}>{subtitle}</span>}
+        <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 11.8 }}>{name}</span>
+        {subtitle && <span style={{ fontSize: 9.4, color: 'var(--ink-500)' }}>{subtitle}</span>}
       </div>
       {children}
     </div>
   );
 }
 
-const H = ({ children }: { children: ReactNode }) => <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 28, margin: '0 0 20px' }}>{children}</h1>;
-const mono: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink-700)' };
+const H = ({ children }: { children: ReactNode }) => <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 22, margin: '0 0 20px' }}>{children}</h1>;
+const mono: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 8.6, color: 'var(--ink-700)' };
 
 const hues: Array<[string, Chapter | '']> = [
   ['red', ''], ['pink', 4], ['purple', 10], ['deep-purple', 6], ['indigo', 1], ['blue', 13], ['light-blue', 8], ['cyan', 11], ['teal', 3],
@@ -34,7 +34,7 @@ const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 function Palette() {
   const row: CSSProperties = { display: 'grid', gridTemplateColumns: `24px 90px repeat(${steps.length}, 1fr)`, gap: 2, alignItems: 'center', marginBottom: 2 };
   return (
-    <div style={{ ...mono, fontSize: 10 }}>
+    <div style={{ ...mono, fontSize: 7.8 }}>
       <div style={{ ...row, marginBottom: 4 }}><span /><span />{steps.map((s) => <span key={s} style={{ textAlign: 'center' }}>{s}</span>)}</div>
       {hues.map(([n, c]) => (
         <div key={n} style={row}>
@@ -57,7 +57,7 @@ function MiniPage({ w, h, cols, label }: { w: number; h: number; cols: number; l
       <div style={{ width: w, height: h, border: '2px solid var(--chapter-1-500)', borderRadius: 3, display: 'flex', padding: 5, gap: 3 }}>
         {Array.from({ length: cols }, (_, i) => <div key={i} style={{ flex: 1, background: 'var(--chapter-1-100)' }} />)}
       </div>
-      <span style={{ ...mono, fontSize: 10, color: 'var(--ink-500)' }}>{label}</span>
+      <span style={{ ...mono, fontSize: 7.8, color: 'var(--ink-500)' }}>{label}</span>
     </div>
   );
 }
@@ -85,7 +85,7 @@ export default function DesignSystem() {
         <Specimen name="Pairing Rule" subtitle="Every chapter color: pastel -100 fill with dark -900 ink — never an alpha-muted tint">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(13, 1fr)', gap: 4 }}>
             {Array.from({ length: 13 }, (_, i) => (
-              <div key={i} style={{ background: `var(--chapter-${i + 1}-100)`, color: `var(--chapter-${i + 1}-900)`, borderTop: `4px solid var(--chapter-${i + 1}-500)`, borderRadius: 6, padding: '8px 0', textAlign: 'center', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 13 }}>{i + 1}</div>
+              <div key={i} style={{ background: `var(--chapter-${i + 1}-100)`, color: `var(--chapter-${i + 1}-900)`, borderTop: `4px solid var(--chapter-${i + 1}-500)`, borderRadius: 6, padding: '8px 0', textAlign: 'center', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 10.2 }}>{i + 1}</div>
             ))}
           </div>
         </Specimen>
@@ -96,36 +96,36 @@ export default function DesignSystem() {
         <H>Type</H>
         <Specimen name="Display — Merriweather" subtitle="Chapter & topic titles, pill labels">
           <div style={{ fontFamily: 'var(--font-display)', display: 'flex', flexDirection: 'column', gap: 6 }}>
-            <div style={{ fontSize: 40, fontWeight: 600, lineHeight: 1.2 }}>Preference Measurement</div>
-            <div style={{ fontSize: 26, fontWeight: 600, color: 'var(--chapter-5-500)' }}>MaxDiff & TURF</div>
-            <div style={{ fontSize: 18, fontWeight: 500, color: 'var(--ink-700)' }}>Conjoint Analysis · Fundamentals</div>
+            <div style={{ fontSize: 31.4, fontWeight: 600, lineHeight: 1.2 }}>Preference Measurement</div>
+            <div style={{ fontSize: 20.4, fontWeight: 600, color: 'var(--chapter-5-500)' }}>MaxDiff & TURF</div>
+            <div style={{ fontSize: 14.1, fontWeight: 500, color: 'var(--ink-700)' }}>Conjoint Analysis · Fundamentals</div>
           </div>
         </Specimen>
         <Specimen name="Body — Lexend" subtitle="Paragraph text at three weights, 1.65 line height">
-          <div style={{ fontSize: 17, lineHeight: 1.65 }}>
+          <div style={{ fontSize: 13.3, lineHeight: 1.65 }}>
             <p style={{ marginBottom: 6 }}>Both tools exist because direct questions fail — stated preferences cost the respondent nothing, so people ask for everything.</p>
             <p style={{ marginBottom: 6, fontWeight: 600 }}>Forcing a real trade-off and observing the choice is what reveals true value.</p>
             <p style={{ fontWeight: 700, color: 'var(--ink-700)' }}>Conjoint = Consider + Jointly</p>
           </div>
         </Specimen>
         <Specimen name="Mono — Fira Code" subtitle="Formulas in words, page numbers, data values">
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 16, display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12.5, display: 'flex', flexDirection: 'column', gap: 8 }}>
             <div>U_profile = β0 + β1x1 + β2x2 + ... + βkxk + ε</div>
             <div style={{ color: 'var(--ink-500)' }}>Preference Measurement &nbsp;5 / 17</div>
           </div>
         </Specimen>
         <Specimen name="Math — KaTeX" subtitle="Real formulas, bundled locally — used in ConceptCard and the Formula Sheet">
-          <Tex tex={"WTP = \\dfrac{\\text{attribute's utility}}{\\text{utils per dollar}}"} style={{ fontSize: 22 }} />
+          <Tex tex={"WTP = \\dfrac{\\text{attribute's utility}}{\\text{utils per dollar}}"} style={{ fontSize: 17.3 }} />
         </Specimen>
         <Specimen name="Type Scale" subtitle="xs through 3xl, each set in the font it's used in">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4, lineHeight: 1.3 }}>
-            <div style={{ fontSize: 'var(--text-xs)' }}>xs · 13px · Lexend — fine print, pill labels</div>
-            <div style={{ fontSize: 'var(--text-sm)' }}>sm · 15px · Lexend — table cells, captions</div>
-            <div style={{ fontSize: 'var(--text-base)' }}>base · 17px · Lexend — paragraph body</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', fontWeight: 600 }}>lg · 20px · Merriweather — subtitles</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-xl)', fontWeight: 600 }}>xl · 26px · Merriweather — card headings</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 600 }}>2xl · 34px · Merriweather — topic titles</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-3xl)', fontWeight: 600 }}>3xl · 44px · Merriweather — chapter titles</div>
+            <div style={{ fontSize: 'var(--text-xs)' }}>xs · 8pt · Lexend — fine print, pill labels</div>
+            <div style={{ fontSize: 'var(--text-sm)' }}>sm · 9pt · Lexend — table cells, captions</div>
+            <div style={{ fontSize: 'var(--text-base)' }}>base · 10pt (body) · Lexend — paragraph body</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', fontWeight: 600 }}>lg · 12pt · Merriweather — subtitles</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-xl)', fontWeight: 600 }}>xl · 15pt · Merriweather — card headings</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 600 }}>2xl · 20pt · Merriweather — topic titles</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-3xl)', fontWeight: 600 }}>3xl · 26pt · Merriweather — chapter titles</div>
           </div>
         </Specimen>
       </Page>
@@ -142,14 +142,14 @@ export default function DesignSystem() {
         </Specimen>
         <Specimen name="Spacing In Use" subtitle="Breathing room is the ADHD-friendly choice">
           <div style={{ background: 'var(--chapter-1-100)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', color: 'var(--chapter-1-900)' }}>
-            <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 13, letterSpacing: '0.06em' }}>space-6 padding, space-3 internal gap</div>
-            <div style={{ fontSize: 15, lineHeight: 1.65 }}>Boxes never crowd their text — padding is always space-5 or space-6, line height is always 1.65, so dense topics stay easy to scan.</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 10.2, letterSpacing: '0.06em' }}>space-6 padding, space-3 internal gap</div>
+            <div style={{ fontSize: 11.8, lineHeight: 1.65 }}>Boxes never crowd their text — padding is always space-5 or space-6, line height is always 1.65, so dense topics stay easy to scan.</div>
           </div>
         </Specimen>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
           <Specimen name="Corner Radii" subtitle="Rounded, never sharp">
             <div style={{ display: 'flex', gap: 12, ...mono }}>
-              {([['sm · 8px', 'sm', 1], ['md · 14px', 'md', 11], ['lg · 20px', 'lg', 5], ['pill', 'pill', 3]] as const).map(([l, r, c]) => (
+              {([['sm · 8px', 'sm', 1], ['md · 14px', 'md', 11], ['lg · 12pt', 'lg', 5], ['pill', 'pill', 3]] as const).map(([l, r, c]) => (
                 <div key={r}><div style={{ width: 60, height: 60, background: `var(--chapter-${c}-100)`, borderRadius: `var(--radius-${r})` }} /><div style={{ marginTop: 4 }}>{l}</div></div>
               ))}
             </div>
@@ -166,7 +166,7 @@ export default function DesignSystem() {
           </div>
         </Specimen>
         <Specimen name="Highlighter Marks" subtitle="<mark> yellow highlight, <strong> bold, .trap bold red, .tip bold green — never a border or underline">
-          <p style={{ fontSize: 16, lineHeight: 1.65 }}>
+          <p style={{ fontSize: 12.5, lineHeight: 1.65 }}>
             Net choice score = Most% − Least%, <mark>counted over every appearance</mark> — not just the times it was selected. <strong>Always check the denominator first.</strong>{' '}
             <strong className="trap">Trap: don’t divide by selections only.</strong> <strong className="tip">Tip: count every appearance.</strong>
           </p>
@@ -193,7 +193,7 @@ export default function DesignSystem() {
             <MiniPage w={78} h={60} cols={3} label="3 col · landscape" />
             <MiniPage w={78} h={60} cols={4} label="4 col · landscape" />
           </div>
-          <div style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--ink-700)' }}>
+          <div style={{ fontSize: 10.2, lineHeight: 1.6, color: 'var(--ink-700)' }}>
             <div style={{ marginBottom: 4 }}><strong>Portrait (default):</strong> 1 column for prose/callouts; 2 columns once content is short, scannable blocks (definitions, tables, flashcards).</div>
             <div><strong>Landscape:</strong> reflow to 3-4 columns to use the extra width — cheat sheets, comparison tables, dense reference pages (Appendix).</div>
           </div>
@@ -217,7 +217,7 @@ export default function DesignSystem() {
           </div>
         </Specimen>
         <Specimen name="Printable Always" subtitle="Rule">
-          <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--ink-700)' }}>Every element must print: nothing hidden, collapsed, hover-only or in a tooltip. Quiz answers are printed in a muted strip right under each question.</p>
+          <p style={{ fontSize: 11, lineHeight: 1.6, color: 'var(--ink-700)' }}>Every element must print: nothing hidden, collapsed, hover-only or in a tooltip. Quiz answers are printed in a muted strip right under each question.</p>
         </Specimen>
       </Page>
 
@@ -233,7 +233,7 @@ export default function DesignSystem() {
         </Specimen>
         <Specimen name="Section" subtitle="SectionTitle + content, consistently spaced">
           <Section chapter={13} title="Introduction">
-            <p style={{ fontSize: 14, lineHeight: 1.6 }}>One concept this time: the overall score for one specific product configuration.</p>
+            <p style={{ fontSize: 11, lineHeight: 1.6 }}>One concept this time: the overall score for one specific product configuration.</p>
           </Section>
           <SectionTitle chapter={2}>Section Title alone</SectionTitle>
         </Specimen>
@@ -274,7 +274,7 @@ export default function DesignSystem() {
             chapter={11}
             title="Handheld GPS Device"
             setup="Four binary attributes — Accuracy (5ft vs. 50ft), Battery (32hr vs. 12hr), Display (3D vs. 2D), Price ($150 vs. $250). All 16 profiles shown; each rated 1–100."
-            context={<div style={{ width: 110, height: 44, borderRadius: 6, background: 'var(--chapter-11-100)', border: '1.5px solid var(--chapter-11-500)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--chapter-11-900)' }}>2⁴ = 16 profiles</div>}
+            context={<div style={{ width: 110, height: 44, borderRadius: 6, background: 'var(--chapter-11-100)', border: '1.5px solid var(--chapter-11-500)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)', fontSize: 8.6, color: 'var(--chapter-11-900)' }}>2⁴ = 16 profiles</div>}
             table={{ columns: ['Variable', 'Partworth (β)'], rows: [['Intercept', '2.7'], ['5ft vs. 50ft (Accuracy)', '9.6'], ['32hr vs. 12hr (Battery)', '30.4'], ['3D vs. 2D (Display)', '14.9'], ['$150 vs. $250 (Price)', '40.6']] }}
             steps={[{ label: 'Compare swings', lines: ['Price: 40.6 (largest)', 'Battery: 30.4', 'Display: 14.9', 'Accuracy: 9.6'] }]}
             answer={{ value: '40.6', label: 'Price Partworth — Largest Swing' }}

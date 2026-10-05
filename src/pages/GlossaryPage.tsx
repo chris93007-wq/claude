@@ -25,8 +25,8 @@ export function GlossaryPage({ toc, title = 'Glossary', entries, chapter }: Glos
       groups.set(letter, [...(groups.get(letter) ?? []), e]);
     });
 
-  const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 28, margin: '0 0 20px' };
-  const letterHead: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 13, color: ch(c, 500), letterSpacing: '0.06em', margin: '14px 0 2px', breakAfter: 'avoid' };
+  const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 22, margin: '0 0 20px' };
+  const letterHead: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 10.2, color: ch(c, 500), letterSpacing: '0.06em', margin: '14px 0 2px', breakAfter: 'avoid' };
   const entry: CSSProperties = { breakInside: 'avoid', padding: '7px 0', borderBottom: '1px solid var(--line)' };
   return (
     <Page toc={toc} badge="Glossary">
@@ -37,8 +37,8 @@ export function GlossaryPage({ toc, title = 'Glossary', entries, chapter }: Glos
             <div style={letterHead}>{letter}</div>
             {items.map((it, i) => (
               <div key={i} style={entry}>
-                <span style={{ fontWeight: 700, fontSize: 14, display: 'block' }}>{it.term}</span>
-                <span style={{ fontSize: 13, color: 'var(--ink-700)', lineHeight: 1.5 }}>{it.def}</span>
+                <span style={{ fontWeight: 700, fontSize: 11, display: 'block' }}>{it.term}</span>
+                <span style={{ fontSize: 10.2, color: 'var(--ink-700)', lineHeight: 1.5 }}>{it.def}</span>
               </div>
             ))}
           </div>

@@ -15,11 +15,11 @@ export interface QuizPageProps {
  * or collapsed, so the page is fully printable. No PageBadge and no footer.
  */
 export function QuizPage({ toc, chapter, questions }: QuizPageProps) {
-  const q: CSSProperties = { fontSize: 16, lineHeight: 1.55, color: 'var(--ink-900)', margin: '4px 0 10px' };
-  const qNum: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 12, color: ch(chapter, 500), fontWeight: 700, marginRight: 8 };
+  const q: CSSProperties = { fontSize: 'var(--text-base)', lineHeight: 1.55, color: 'var(--ink-900)', margin: '4px 0 10px' };
+  const qNum: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 9.4, color: ch(chapter, 500), fontWeight: 700, marginRight: 8 };
   const strip: CSSProperties = { background: 'var(--light-green-200)', borderRadius: 'var(--radius-sm)', padding: '8px 12px', display: 'flex', gap: 8, alignItems: 'baseline' };
-  const aLabel: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 10, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--ink-900)', flexShrink: 0 };
-  const aText: CSSProperties = { fontSize: 13.5, color: 'var(--ink-900)', lineHeight: 1.5 };
+  const aLabel: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 7.8, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--ink-900)', flexShrink: 0 };
+  const aText: CSSProperties = { fontSize: 10.6, color: 'var(--ink-900)', lineHeight: 1.5 };
   return (
     <Page toc={toc} footer={false}>
       {questions.map((it, i) => (

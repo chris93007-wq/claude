@@ -1,0 +1,13 @@
+/* Fonts are bundled locally (via @fontsource) so PDF generation never depends on the network. */
+@import "@fontsource-variable/merriweather";
+@import "@fontsource-variable/lexend";
+@import "@fontsource-variable/fira-code";
+
+:root{
+--font-display:'Merriweather Variable','Merriweather',Georgia,'Segoe UI',serif;
+--font-body:'Lexend Variable','Lexend',-apple-system,'Segoe UI',sans-serif;
+--font-mono:'Fira Code Variable','Fira Code',ui-monospace,'SFMono-Regular',monospace;
+--text-xs:13px;--text-sm:15px;--text-base:17px;--text-lg:20px;--text-xl:26px;--text-2xl:34px;--text-3xl:44px;
+--leading-tight:1.2;--leading-body:1.65;
+--weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;
+}

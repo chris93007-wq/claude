@@ -1,0 +1,35 @@
+{
+  "name": "christines-notes",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Generate ADHD-friendly PDF study notes from Christine's Notes design system.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "pdf": "vite build && tsx scripts/pdf.ts",
+    "pdf:only": "tsx scripts/pdf.ts",
+    "new": "tsx scripts/new.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/fira-code": "^5.3.0",
+    "@fontsource-variable/lexend": "^5.3.0",
+    "@fontsource-variable/merriweather": "^5.3.0",
+    "katex": "^0.19.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/katex": "*",
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@vitejs/plugin-react": "^6.1.1",
+    "pdfjs-dist": "^6.4.299",
+    "playwright-core": "^1.63.0",
+    "tsx": "^4.23.15",
+    "typescript": "*",
+    "vite": "^8.3.2"
+  }
+}

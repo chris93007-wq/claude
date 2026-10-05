@@ -1,0 +1,74 @@
+/*
+ * Page geometry — US Letter, narrow 0.5in margins, symmetric on every page (no binding offset).
+ * Content flows naturally across printed pages; each page template starts on a new sheet.
+ *
+ * Named pages (set via <Page orientation footer>):
+ *   (default)        portrait, with footer
+ *   landscape        landscape, with footer
+ *   portrait-bare    portrait, no footer
+ *   landscape-bare   landscape, no footer
+ *   cover            portrait, no margins, no footer (the cover draws its own 64px inset)
+ *
+ * The footer (PageFooter specimen: breadcrumb left, mono "page / total" right, thin top rule) lives in the
+ * @page margin boxes so it repeats on every printed sheet. Its label text is injected per document by
+ * <NotesDocument>.
+ */
+@page{
+  size:letter portrait;
+  margin:0.5in;
+  @bottom-left{
+    content:"";
+    vertical-align:top;padding-top:12px;
+    border-top:1px solid var(--line);
+    font-family:var(--font-body);font-size:13px;letter-spacing:0.02em;color:var(--ink-500);
+  }
+  @bottom-center{content:"";vertical-align:top;border-top:1px solid var(--line)}
+  @bottom-right{
+    content:counter(page) " / " counter(pages);
+    vertical-align:top;padding-top:12px;
+    border-top:1px solid var(--line);
+    font-family:var(--font-mono);font-size:13px;color:var(--ink-500);
+  }
+}
+@page landscape{size:letter landscape}
+@page portrait-bare{
+  @bottom-left{content:none;border:none}@bottom-center{content:none;border:none}@bottom-right{content:none;border:none}
+}
+@page landscape-bare{
+  size:letter landscape;
+  @bottom-left{content:none;border:none}@bottom-center{content:none;border:none}@bottom-right{content:none;border:none}
+}
+@page cover{
+  margin:0;
+  @bottom-left{content:none;border:none}@bottom-center{content:none;border:none}@bottom-right{content:none;border:none}
+}
+
+.page{position:relative;display:flex;flex-direction:column}
+.page[data-page="landscape"]{page:landscape}
+.page[data-page="portrait-bare"]{page:portrait-bare}
+.page[data-page="landscape-bare"]{page:landscape-bare}
+.page[data-page="cover"]{page:cover}
+.page-body{flex:1;display:flex;flex-direction:column}
+
+/* Invisible marker the PDF script reads back to learn which sheet each Contents entry starts on. */
+.toc-marker{position:absolute;top:0;left:0;font-size:1px;line-height:1px;color:#fff;white-space:nowrap;pointer-events:none;user-select:none}
+
+/* Never split these across a printed page. */
+.no-break{break-inside:avoid}
+tr,figure{break-inside:avoid}
+h1,h2,h3,h4{break-after:avoid}
+
+@media screen{
+  body{background:var(--grey-200)}
+  .doc{padding:32px 16px 64px;display:flex;flex-direction:column;align-items:center;gap:32px}
+  .page{background:var(--surface-page);box-shadow:var(--shadow-md);width:8.5in;min-height:11in;padding:0.5in}
+  .page[data-orientation="landscape"]{width:11in;min-height:8.5in}
+  .page[data-page="cover"]{padding:0}
+  .screen-footer{margin-top:var(--space-6)}
+}
+@media print{
+  .page + .page{break-before:page}
+  .page,.page-body{display:block}
+  .screen-only{display:none !important}
+  .page[data-page="cover"]{height:11in;overflow:hidden}
+}

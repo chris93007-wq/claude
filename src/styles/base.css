@@ -1,0 +1,43 @@
+/*
+ * Base element styles + the two Brand-group text patterns (no components — Tag/Highlight were removed
+ * from the system on purpose; these are plain CSS so notes can use semantic HTML):
+ *
+ *   <mark>…</mark>                       yellow highlighter, bold — the ONLY highlight color
+ *   <strong>…</strong>                   plain bold
+ *   <strong class="trap">…</strong>      bold red, no fill  (reserved: traps / mistakes)
+ *   <strong class="tip">…</strong>       bold green, no fill (reserved: tips / clues)
+ *   <span class="badge ch-4">…</span>    all-caps text badge, chapter-500 fill + white text
+ *
+ * `.ch-N` sets --c-50…--c-900 to chapter N's ramp so any class can read "the current chapter color".
+ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body);font-size:var(--text-base);line-height:var(--leading-body);-webkit-font-smoothing:antialiased}
+p{margin:0;orphans:3;widows:3}
+
+mark{background:var(--highlighter);color:var(--ink-900);padding:1px 5px;border-radius:var(--radius-sm);font-weight:700;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+strong.trap{color:var(--highlighter-trap-ink);font-weight:700}
+strong.tip{color:var(--highlighter-tip-ink);font-weight:700}
+
+.badge{display:inline-flex;align-items:center;width:fit-content;background:var(--c-500,var(--chapter-1-500));color:#fff;font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:4px 14px;border-radius:var(--radius-pill);line-height:1.4}
+
+/* Prose helper for running text inside pages */
+.prose{font-size:var(--text-base);line-height:var(--leading-body);color:var(--ink-900)}
+.prose-sm{font-size:16px;line-height:var(--leading-body);color:var(--ink-900)}
+
+.ch-1{--c-50:var(--chapter-1-50);--c-100:var(--chapter-1-100);--c-200:var(--chapter-1-200);--c-300:var(--chapter-1-300);--c-400:var(--chapter-1-400);--c-500:var(--chapter-1-500);--c-600:var(--chapter-1-600);--c-700:var(--chapter-1-700);--c-900:var(--chapter-1-900);}
+.ch-2{--c-50:var(--chapter-2-50);--c-100:var(--chapter-2-100);--c-200:var(--chapter-2-200);--c-300:var(--chapter-2-300);--c-400:var(--chapter-2-400);--c-500:var(--chapter-2-500);--c-600:var(--chapter-2-600);--c-700:var(--chapter-2-700);--c-900:var(--chapter-2-900);}
+.ch-3{--c-50:var(--chapter-3-50);--c-100:var(--chapter-3-100);--c-200:var(--chapter-3-200);--c-300:var(--chapter-3-300);--c-400:var(--chapter-3-400);--c-500:var(--chapter-3-500);--c-600:var(--chapter-3-600);--c-700:var(--chapter-3-700);--c-900:var(--chapter-3-900);}
+.ch-4{--c-50:var(--chapter-4-50);--c-100:var(--chapter-4-100);--c-200:var(--chapter-4-200);--c-300:var(--chapter-4-300);--c-400:var(--chapter-4-400);--c-500:var(--chapter-4-500);--c-600:var(--chapter-4-600);--c-700:var(--chapter-4-700);--c-900:var(--chapter-4-900);}
+.ch-5{--c-50:var(--chapter-5-50);--c-100:var(--chapter-5-100);--c-200:var(--chapter-5-200);--c-300:var(--chapter-5-300);--c-400:var(--chapter-5-400);--c-500:var(--chapter-5-500);--c-600:var(--chapter-5-600);--c-700:var(--chapter-5-700);--c-900:var(--chapter-5-900);}
+.ch-6{--c-50:var(--chapter-6-50);--c-100:var(--chapter-6-100);--c-200:var(--chapter-6-200);--c-300:var(--chapter-6-300);--c-400:var(--chapter-6-400);--c-500:var(--chapter-6-500);--c-600:var(--chapter-6-600);--c-700:var(--chapter-6-700);--c-900:var(--chapter-6-900);}
+.ch-7{--c-50:var(--chapter-7-50);--c-100:var(--chapter-7-100);--c-200:var(--chapter-7-200);--c-300:var(--chapter-7-300);--c-400:var(--chapter-7-400);--c-500:var(--chapter-7-500);--c-600:var(--chapter-7-600);--c-700:var(--chapter-7-700);--c-900:var(--chapter-7-900);}
+.ch-8{--c-50:var(--chapter-8-50);--c-100:var(--chapter-8-100);--c-200:var(--chapter-8-200);--c-300:var(--chapter-8-300);--c-400:var(--chapter-8-400);--c-500:var(--chapter-8-500);--c-600:var(--chapter-8-600);--c-700:var(--chapter-8-700);--c-900:var(--chapter-8-900);}
+.ch-9{--c-50:var(--chapter-9-50);--c-100:var(--chapter-9-100);--c-200:var(--chapter-9-200);--c-300:var(--chapter-9-300);--c-400:var(--chapter-9-400);--c-500:var(--chapter-9-500);--c-600:var(--chapter-9-600);--c-700:var(--chapter-9-700);--c-900:var(--chapter-9-900);}
+.ch-10{--c-50:var(--chapter-10-50);--c-100:var(--chapter-10-100);--c-200:var(--chapter-10-200);--c-300:var(--chapter-10-300);--c-400:var(--chapter-10-400);--c-500:var(--chapter-10-500);--c-600:var(--chapter-10-600);--c-700:var(--chapter-10-700);--c-900:var(--chapter-10-900);}
+.ch-11{--c-50:var(--chapter-11-50);--c-100:var(--chapter-11-100);--c-200:var(--chapter-11-200);--c-300:var(--chapter-11-300);--c-400:var(--chapter-11-400);--c-500:var(--chapter-11-500);--c-600:var(--chapter-11-600);--c-700:var(--chapter-11-700);--c-900:var(--chapter-11-900);}
+.ch-12{--c-50:var(--chapter-12-50);--c-100:var(--chapter-12-100);--c-200:var(--chapter-12-200);--c-300:var(--chapter-12-300);--c-400:var(--chapter-12-400);--c-500:var(--chapter-12-500);--c-600:var(--chapter-12-600);--c-700:var(--chapter-12-700);--c-900:var(--chapter-12-900);}
+.ch-13{--c-50:var(--chapter-13-50);--c-100:var(--chapter-13-100);--c-200:var(--chapter-13-200);--c-300:var(--chapter-13-300);--c-400:var(--chapter-13-400);--c-500:var(--chapter-13-500);--c-600:var(--chapter-13-600);--c-700:var(--chapter-13-700);--c-900:var(--chapter-13-900);}
+
+/* NotesPage body copy: plain <p> children read as dense lecture-notes prose */
+.notes-flow .page-body > p{font-size:16px;line-height:var(--leading-body);margin:0 0 18px;color:var(--ink-900)}

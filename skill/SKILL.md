@@ -56,4 +56,4 @@ If the user only wants a re-render or small edit, skip step 2's authoring: edit 
 
 ## If it can't run here
 
-If there's no Node, no network for `npm install`, or no Chromium, the PDF cannot be built in this environment. Do the authoring anyway, deliver the `notes/<name>.tsx` file, and tell the user to render it on their own machine: clone `https://github.com/chris93007-wq/claude`, put the file in `notes/`, then `npm install && npm run pdf`. Say clearly that you did not produce a PDF.
+If there's no Node, no network for `npm install`, or no Chromium, the PDF cannot be built in this environment. Do the authoring anyway, deliver the `notes/<name>.tsx` file, and tell the user to render it on their own machine: clone `https://github.com/chris93007-wq/study-notes, put the file in `notes/`, then `npm install && npm run pdf`. Say clearly that you did not produce a PDF.

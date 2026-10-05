@@ -25,15 +25,15 @@ export interface TopicMapPageProps {
   children?: ReactNode;
 }
 
-/** Chapter overview: ChapterHeader, a flashcard per topic, then the introduction in a space-saving 2-column grid. */
+/** Chapter overview: ChapterHeader, then the introduction (first) in a space-saving 2-column grid, then a flashcard per topic — sized to fit one sheet. */
 export function TopicMapPage({ toc, label = 'Overview', title, subtitle, chapterNumber, cards, cardColumns = 2, children }: TopicMapPageProps) {
   const doc = useDocument();
   return (
     <Page toc={toc}>
-      <ChapterHeader chapterNumber={chapterNumber ?? doc?.meta.brandChapter ?? 1} week={doc?.meta.week} chapter={label} title={title ?? doc?.meta.title ?? ''} subtitle={subtitle} />
+      <ChapterHeader compact chapterNumber={chapterNumber ?? doc?.meta.brandChapter ?? 1} week={doc?.meta.week} chapter={label} title={title ?? doc?.meta.title ?? ''} subtitle={subtitle} />
+      {/* Introduction first, then a flashcard per topic. Chromium ignores break-inside on grid rows, so the intro block is kept together as a whole. */}
+      {children && <div className="no-break" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: 34, rowGap: 13, alignItems: 'start', marginBottom: 12 }}>{children}</div>}
       <FlashcardGrid cards={cards} columns={cardColumns} />
-      {/* Chromium ignores break-inside on grid rows, so the intro block is kept together as a whole. */}
-      {children && <div className="no-break" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: 34.1, rowGap: 17.3, alignItems: 'start', marginTop: 17.3 }}>{children}</div>}
     </Page>
   );
 }

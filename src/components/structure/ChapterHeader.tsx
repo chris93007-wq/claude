@@ -15,10 +15,12 @@ export interface ChapterHeaderProps {
   subtitle?: string;
   /** Renders a numbered list of every topic covered */
   topics?: string[];
+  /** Less vertical padding, for pages that must fit a lot (e.g. a one-sheet Topic Map) */
+  compact?: boolean;
 }
 
-export function ChapterHeader({ week, chapterNumber, chapter = 'Chapter 1', eyebrow, title, subtitle, topics = [] }: ChapterHeaderProps) {
-  const wrap: CSSProperties = { display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', padding: 'var(--space-7) 0 var(--space-6)', breakInside: 'avoid' };
+export function ChapterHeader({ week, chapterNumber, chapter = 'Chapter 1', eyebrow, title, subtitle, topics = [], compact = false }: ChapterHeaderProps) {
+  const wrap: CSSProperties = { display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', padding: compact ? 'var(--space-2) 0 var(--space-4)' : 'var(--space-7) 0 var(--space-6)', breakInside: 'avoid' };
   const badge: CSSProperties = { background: ch(chapterNumber, 100), color: ch(chapterNumber, 900), fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-xs)', letterSpacing: '0.08em', padding: '4.4px 12.1px', borderRadius: 'var(--radius-pill)', width: 'fit-content', textTransform: 'uppercase' };
   const mono: CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 'var(--text-sm)', color: 'var(--ink-500)', letterSpacing: '0.04em' };
   const h1: CSSProperties = { fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-3xl)', color: 'var(--ink-900)', lineHeight: 'var(--leading-tight)', margin: 0 };

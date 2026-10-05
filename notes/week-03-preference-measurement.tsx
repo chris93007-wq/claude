@@ -42,8 +42,7 @@ export default function Week03() {
       {/* ───────────── Topic Map ───────────── */}
       <TopicMapPage
         toc={{ title: 'Topic Map (Overview)', chapter: C.overview }}
-        title="Measuring & Quantifying Consumer Preferences"
-        subtitle="Conjoint = Consider + Jointly"
+        subtitle="Measuring & quantifying consumer preferences · Conjoint = Consider + Jointly"
         cards={[
           { title: 'MaxDiff', chapter: C.maxdiff, definition: 'Repeatedly pick the Most and Least important item from a small set.', formula: 'Net score = Most% − Least%, over every appearance.', why: 'Forces a real trade-off instead of a rating everyone inflates.' },
           { title: 'TURF', chapter: C.turf, definition: 'Finds the bundle that reaches the most people under a budget.', formula: 'Reach = share covered by at least one item in the bundle.', why: 'Only new reach counts — overlapping coverage adds nothing.' },
@@ -54,18 +53,17 @@ export default function Week03() {
         <Full style={{ margin: '6.9px 0 0' }}>
           <SectionTitle chapter={C.overview}>Introduction</SectionTitle>
         </Full>
-        <p className="prose no-break">
+        <Full><p className="prose">
           Both tools exist because direct questions fail — stated preferences (“what do you want?”) and stated importance ratings (“rate this 1–9”) both cost the respondent nothing, so people either ask for everything or rate everything as important.{' '}
           <mark>Forcing a real trade-off and observing the choice is what reveals true value.</mark>
-        </p>
-        <Stack>
-          <Callout chapter={C.overview} label="KEY INSIGHT">
+        </p></Full>
+
+        <Callout chapter={C.overview} label="KEY INSIGHT">
             Two tools, one agenda: MaxDiff answers “what matters most” (a ranking); Conjoint Analysis answers “how much does it matter, in dollars” (willingness-to-pay).
-          </Callout>
-          <Callout chapter={C.overview} label="NOTES">
+        </Callout>
+        <Callout chapter={C.overview} label="NOTES">
             Quiz 2 moved to Session 4, rescoped to CBC interpretation only — the MaxDiff/TURF/ratings-conjoint material in this packet is still core course content.
-          </Callout>
-        </Stack>
+        </Callout>
       </TopicMapPage>
 
       {/* ───────────── Topic 2 · MaxDiff ───────────── */}

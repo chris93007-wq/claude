@@ -68,7 +68,7 @@ export default function Notes() {
         toc={{ title: 'Formula Sheet', chapter: C.formulas }}
         sections={[{ chapter: C.topicA, name: 'Topic A', rows: [{ concept: 'TODO', decomp: 'TODO in words', tex: 'a = b + c' }] }]}
       />
-      <QuizPage toc={{ title: 'Practice Questions', chapter: C.practice }} chapter={C.practice} questions={[{ q: 'TODO question?', a: 'TODO answer.' }]} />
+      <QuizPage toc={{ title: 'Practice Questions', chapter: C.practice }} chapter={C.practice} kicker="TODO one line" questions={[{ q: 'TODO question?', a: 'TODO answer.' }]} />
       <GlossaryPage toc={{ title: 'Glossary', chapter: C.glossary }} chapter={C.glossary} entries={[{ term: 'TODO', def: 'TODO' }]} />
     </NotesDocument>
   );

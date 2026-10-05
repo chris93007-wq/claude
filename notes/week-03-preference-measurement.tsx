@@ -280,6 +280,7 @@ export default function Week03() {
       <QuizPage
         toc={{ title: 'Practice Questions', chapter: C.practice }}
         chapter={C.practice}
+        kicker="Answers are printed right under each question"
         questions={[
           { q: 'An item appeared in 4 choice sets, was picked Most once and Least once. What is its net choice score?', a: '1/4 − 1/4 = 25% − 25% = 0pp. The denominator is every appearance (4), not just the 2 times it was selected.' },
           { q: 'Bundle A reaches 60% of respondents. Adding Item X, which only appeals to people Bundle A already reaches, changes reach by how much?', a: '0 percentage points — TURF only counts NEW reach; fully overlapping coverage adds nothing.' },
